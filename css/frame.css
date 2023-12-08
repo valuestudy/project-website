@@ -275,7 +275,7 @@ hr {
 .content ul a,
 .content ol a {
   text-decoration: none;
-  color: #005cbf;
+  color: #ffffff;
 }
 
 .content p a:hover,
@@ -297,7 +297,7 @@ hr {
   font-weight: 300;
   line-height: 1.5;
   overflow-x: auto;
-  background-color: #005cbf;
+  background-color: #ffffff;
   display: flex;
 }
 
@@ -836,7 +836,7 @@ ol.nested>li:before {
 }
 
 .masonry figure.selected {
-  border: 5px solid #007bff;
+  border: 5px solid #ffffff;
   -moz-box-shadow: inset 0 0 4px 1px #6d6d6d;
   -webkit-box-shadow: inset 0 0 4px 1px #6d6d6d;
   box-shadow: inset 0 0 4px 1px #6d6d6d;
