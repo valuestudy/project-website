@@ -37,7 +37,8 @@
           surveyRef.push(data)
             .then(() => {
               console.log('Survey response sent to Firebase successfully!');
-              // Optionally, reset the form or perform other actions
+              // Optionally, reset the form or perform other actions, e.g. redirect to success.html
+              window.location.href = 'success.html';
             })
             .catch(error => {
               console.error('Error sending survey response to Firebase:', error);

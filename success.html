@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Value Study</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/footer.js"></script>
+  <style>
+    .menu-index {
+      color: rgb(255, 255, 255) !important;
+      opacity: 1 !important;
+      font-weight: 700 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <p class="text">
+              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
+              augue. Curabitur ullamcorper ultricies nisi.
+            </p>
+            <h2>Heading 1</h2>
+            <hr>
+            <p class="text">
+             
+
+              Thanks for having participated in our survey. In order to gain more money, consider the following:
+
+              <script src="https://accounts.google.com/gsi/client" async></script>
+
+              <div id="g_id_onload"
+              data-client_id="1092513324979-549ab8n091mq248s5ltngh19o9p0u876.apps.googleusercontent.com"
+              data-context="signin"
+              data-ux_mode="redirect"
+              data-login_uri="https://valuestudy.github.io/survey2/"
+              data-itp_support="true">
+              </div>
+        
+              <div class="g_id_signin"
+                    data-type="standard"
+                    data-shape="pill"
+                    data-theme="outline"
+                    data-text="continue_with"
+                    data-size="large"
+                    data-logo_alignment="left"
+                    data-width="200">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <script>
+          function onSignIn(googleUser) {
+            // Get the user's profile information
+            var profile = googleUser.getBasicProfile();
+            
+            console.log('ID: ' + profile.getId());
+            console.log('Name: ' + profile.getName());
+            console.log('Email: ' + profile.getEmail());
+        
+            // Redirect to another page
+            window.location.href = '/survey2/';  // Replace with your desired URL
+          }
+        </script>
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-container"></div>
+</body>
+
+</html>
