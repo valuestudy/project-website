@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+  
+    <!-- Add Firebase SDK Scripts with defer attribute -->
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-database-compat.js" defer></script>
+  
+    <!-- Firebase Configuration Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const firebaseConfig = {
+          apiKey: "AIzaSyDF1e_FBAv4P1krAwTKVyP3F5g4knp4Hew",
+          authDomain: "valuestudy.firebaseapp.com",
+          databaseURL: "https://valuestudy-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "valuestudy",
+          storageBucket: "valuestudy.appspot.com",
+          messagingSenderId: "1092513324979",
+          appId: "1:1092513324979:web:b6823acdd1d63aca5935c6"
+        };
+  
+        // Initialize Firebase after the DOM has been fully loaded
+        const firebaseApp = firebase.initializeApp(firebaseConfig);
+  
+        // Get a reference to the database
+        const database = firebaseApp.database();
+        const surveyRef = database.ref('surveyResponses');
+  
+        // Function to send survey responses to Firebase
+        function sendSurveyResponse(data) {
+          surveyRef.push(data)
+            .then(() => {
+              console.log('Survey response sent to Firebase successfully!');
+              // Optionally, reset the form or perform other actions
+            })
+            .catch(error => {
+              console.error('Error sending survey response to Firebase:', error);
+            });
+        }
+  
+        // Function to handle form submission
+        function handleFormSubmission(event) {
+          event.preventDefault();
+  
+          // Get form data
+          const surveyForm = document.getElementById('surveyForm');
+          const formData = new FormData(surveyForm);
+          const data = {};
+          formData.forEach((value, key) => {
+            data[key] = value;
+          });
+  
+          // Call the function to send survey response to Firebase
+          sendSurveyResponse(data);
+        }
+  
+        // Continue with your code...
+        const surveyForm = document.getElementById('surveyForm');
+  
+        surveyForm.addEventListener('submit', handleFormSubmission);
+      });
+    </script>
+  </head>
+  
+
+  <title> Value Study </title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/widgets.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/widgets.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/custom.js"></script>
+  <style>
+    .menu-widget {
+      color: rgb(255, 255, 255) !important;
+      opacity: 1 !important;
+      font-weight: 700 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+    
+
+<body>
+  <!-- Your HTML Survey Form -->
+  <div class="flex-row"><form id="surveyForm">
+            <div class="flex-item flex-column">
+              <h2 id="Survey">Survey</h2>
+              <hr>
+              <p class="text">
+                Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
+                augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+                condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
+                vel, luctus pulvinar, hendrerit id, lorem.
+              </p>
+              <div class="custom-survey add-top-margin add-bottom-margin">
+                <span class="text">1. I am concerned about how my personal data is handled by online platforms and services.</span>
+                <div class="custom-radio-group-survey add-top-margin">
+                  <div><input type="radio" name="scenario-question-1" value="Agree" id="scenario-question-1-item-1"> <label class="break-long-url" for="scenario-question-1-item-1">Agree</label></div>
+                  <div><input type="radio" name="scenario-question-1" value="Neutral" id="scenario-question-1-item-2"> <label class="break-long-url" for="scenario-question-1-item-2">Neutral</label></div>
+                  <div><input type="radio" name="scenario-question-1" value="Disagree" id="scenario-question-1-item-3"> <label class="break-long-url" for="scenario-question-1-item-3">Disagree</label></div>
+                </div>
+              </div>
+              <div class="custom-survey add-top-margin add-bottom-margin">
+                <span class="text">2. I feel confident navigating and using a variety of digital devices and applications.</span>
+                <div class="custom-radio-group-survey add-top-margin">
+                  <div><input type="checkbox" name="scenario-question-2" value="Agree" id="scenario-question-2-item-1"> <label class="break-long-url" for="scenario-question-2-item-1">Agree</label></div>
+                  <div><input type="checkbox" name="scenario-question-2" value="Neutral" id="scenario-question-2-item-2"> <label class="break-long-url" for="scenario-question-2-item-2">Neutral</label></div>
+                  <div><input type="checkbox" name="scenario-question-2" value="Disagree" id="scenario-question-2-item-3"> <label class="break-long-url" for="scenario-question-2-item-3">Disagree</label></div>
+                </div>
+              </div>
+              <div class="custom-survey add-top-margin add-bottom-margin">
+                
+              <label for="age">3. What is your age?</label>
+              <input type="number" id="age" name="age" required>
+              </div>
+
+              <button type="submit">Submit</button>
+            </div></form>
+          
+              
+
+            </div>
+          </div>
+          <!--End Survey-->
+          <!-------------------------------------------------------------------------------------------->
+
+
+        </div>
+        
+      </div>
+    </div>
+    <div class="footer-container"></div>
+  </div>
+</body>
+
+</html>

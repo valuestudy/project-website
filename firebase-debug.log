@@ -1,0 +1,31 @@
+[debug] [2023-12-09T19:51:45.165Z] ----------------------------------------------------------------------
+[debug] [2023-12-09T19:51:45.168Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Watson\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2023-12-09T19:51:45.168Z] CLI Version:   13.0.0
+[debug] [2023-12-09T19:51:45.168Z] Platform:      win32
+[debug] [2023-12-09T19:51:45.168Z] Node Version:  v20.10.0
+[debug] [2023-12-09T19:51:45.169Z] Time:          Sat Dec 09 2023 20:51:45 GMT+0100 (Mitteleuropäische Normalzeit)
+[debug] [2023-12-09T19:51:45.169Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-09T19:51:45.176Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-12-09T19:51:45.296Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-09T19:51:45.296Z] > authorizing via signed-in user (juliak.kraemer@gmail.com)
+[debug] [2023-12-09T19:51:45.296Z] [iam] checking project valuestudy for permissions ["firebase.projects.get"]
+[debug] [2023-12-09T19:51:45.298Z] > refreshing access token with scopes: []
+[debug] [2023-12-09T19:51:45.298Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-12-09T19:51:45.298Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-12-09T19:51:45.425Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-12-09T19:51:45.425Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-12-09T19:51:45.438Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/valuestudy:testIamPermissions [none]
+[debug] [2023-12-09T19:51:45.438Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/valuestudy:testIamPermissions x-goog-quota-user=projects/valuestudy
+[debug] [2023-12-09T19:51:45.438Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/valuestudy:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-12-09T19:51:45.565Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-12-09T19:51:45.565Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2023-12-09T19:51:45.670Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/valuestudy:testIamPermissions 200
+[debug] [2023-12-09T19:51:45.670Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/valuestudy:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-12-09T19:51:45.671Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/valuestudy [none]
+[debug] [2023-12-09T19:51:45.942Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/valuestudy 200
+[debug] [2023-12-09T19:51:45.942Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/valuestudy {"projectId":"valuestudy","projectNumber":"1092513324979","displayName":"Valuestudy","name":"projects/valuestudy","resources":{"hostingSite":"valuestudy","realtimeDatabaseInstance":"valuestudy-default-rtdb"},"state":"ACTIVE","etag":"1_969f9f02-3be1-4a89-a846-5771ae8e397d"}
+[info] 
+[info] === Serving from 'C:\Users\Watson\Documents\GitHub\Firebase'...
+[info] 
+[debug] [2023-12-09T19:51:45.945Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/valuestudy/sites 

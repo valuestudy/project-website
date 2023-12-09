@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<!-- Your HTML Form -->
+<form id="surveyForm">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <!-- Add more survey questions as needed -->
+
+  <button type="submit">Submit</button>
+</form>
+
+<!-- Firebase SDK Scripts with defer attribute -->
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-database-compat.js" defer></script>
+
+<!-- Firebase Configuration Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const firebaseConfig = {
+      apiKey: "AIzaSyDF1e_FBAv4P1krAwTKVyP3F5g4knp4Hew",
+      authDomain: "valuestudy.firebaseapp.com",
+      databaseURL: "https://valuestudy-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "valuestudy",
+      storageBucket: "valuestudy.appspot.com",
+      messagingSenderId: "1092513324979",
+      appId: "1:1092513324979:web:b6823acdd1d63aca5935c6"
+    };
+
+    // Initialize Firebase after the DOM has been fully loaded
+    const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+    // Get a reference to the database
+    const database = firebaseApp.database();
+    const surveyRef = database.ref('surveys');
+
+    // Continue with your code...
+  });
+</script>
+
+<!-- Your Custom JavaScript Code -->
+<script>
+  const surveyForm = document.getElementById('surveyForm');
+
+  surveyForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Get form data
+    const formData = new FormData(surveyForm);
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+
+    // Save data to Firebase Realtime Database
+    const database = firebase.database();
+    const surveyRef = database.ref('surveys'); // Change 'surveys' to your desired path
+    surveyRef.push(data)
+      .then(() => {
+        console.log('Data sent to Firebase successfully!');
+        surveyForm.reset(); // Reset the form
+      })
+      .catch(error => {
+        console.error('Error sending data to Firebase:', error);
+      });
+  });
+</script>

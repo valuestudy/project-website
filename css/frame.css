@@ -326,7 +326,7 @@ hr {
 }
 
 .banner .flex-item {
-  max-width: 900px;
+  max-width: 800px;
   margin: 20px auto;
   padding: 0 30px;
 }
@@ -413,7 +413,7 @@ hr {
 }
 
 .text {
-  margin: 10px 0 10px 0;
+  margin: 0;
   padding: 0;
 }
 
