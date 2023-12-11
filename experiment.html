@@ -6,49 +6,43 @@
 
 <body>
 
-
-  <!-- Modal -->
-  <dialog>
-    <div class="cookie-banner" id="cookieBanner">
-      <p>This website uses cookies to ensure you get the best experience on our website.</p>
-      <button id="accept-cookie" class="cookie-button accept-button" onclick="acceptCookies()">Accept</button>
-      <button id="decline-cookie" class="cookie-button decline-button" onclick="declineCookies()">Decline</button>
-    </div>
-  </dialog>
-
+<!-- Changing cookie banner script  -->
   <script>
-    const dialogElement = document.querySelector("dialog");
+document.addEventListener("DOMContentLoaded", function () {
+      var overlay = document.getElementById("overlay");
+      var acceptCookieButton = document.getElementById("accept-cookie");
+      var declineCookieButton = document.getElementById("decline-cookie");
 
-    // Show the dialog when the page loads
-    dialogElement.showModal();
+      // Function to log the user's cookie decision
+      function logCookieDecision(decision) {
+          console.log("User has " + decision + " cookies.");
+          // You can send this information to your server or perform any other desired action.
+      }
 
-    function acceptCookies() {
-      // Handle logic for accepting cookies
-      console.log("Cookies accepted");
-      dialogElement.close();
-    }
-
-    function declineCookies() {
-      // Handle logic for declining cookies
-      console.log("Cookies declined");
-      dialogElement.close();
-    }
-
-    // Function to randomly change the appearance of the cookie banner
-    function randomizeCookieBanner() {
-      const cookieBanner = document.getElementById("cookieBanner");
-      const isGreyDesign = Math.random() < 0.5; // 50% chance of grey design
+      // Randomly assign button colors
+      var isGreyDesign = Math.random() < 0.5; // 50% chance of grey design
 
       if (isGreyDesign) {
-        cookieBanner.classList.add("grey-design");
+          acceptCookieButton.classList.add("grey-button");
+          declineCookieButton.classList.add("grey-button");
       }
-    }
 
-    // Call the function to randomize the cookie banner appearance
-    randomizeCookieBanner();
-  </script>
+      // Handle the "Accept" button click
+      acceptCookieButton.addEventListener("click", function () {
+          overlay.style.display = "none"; // Hide the overlay
+          localStorage.setItem("cookieAccepted", "true"); // Store user's acceptance
+          logCookieDecision("Accepted");
+      });
 
-</body>
+      // Handle the "Decline" button click
+      declineCookieButton.addEventListener("click", function () {
+          overlay.style.display = "none"; // Hide the overlay
+          localStorage.setItem("cookieDeclined", "true"); // Store user's decline
+          logCookieDecision("Declined");
+      });
+
+    });
+</script>
 
 <!--End Cookie Banner-->
     <!-------------------------------------------------------------------------------------------->
@@ -109,9 +103,35 @@
     </div>
 
 
-    <!--End Header-->
-    <!-------------------------------------------------------------------------------------------->
+  <!-- Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <p>This is your modal content. Customize it as needed.</p>
+    </div>
+  </div>
 
+  <script>
+
+    // script.js
+document.addEventListener("DOMContentLoaded", function () {
+  // Display the modal when the page loads
+  openModal();
+});
+
+function openModal() {
+  var modal = document.getElementById("myModal");
+  modal.style.display = "flex";
+}
+
+function closeModal() {
+  var modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
+
+
+
+</script>
 
 
       </div>
