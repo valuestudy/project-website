@@ -73,5 +73,27 @@
   color: white;
 }
 
+.menu-index {
+  color: rgb(255, 255, 255) !important;
+  opacity: 1 !important;
+  font-weight: 700 !important;
+}
+/* Define the button style */
+.button {
+  display: inline-block;
+  padding: 15px; /* Adjust padding for the height of the button */
+  background-color: #444; /* Slightly lighter grey background color */
+  color: white; /* White text color */
+  text-decoration: none;
+  border: none;
+  border-radius: 8px; /* Optional: rounded corners */
+  font-size: 18px; /* Increase font size for larger text */
+  transition: background-color 0.3s; /* Add a smooth transition for the background color change */
+  font-family: 'PT-serif', sans-serif; /* Replace with your preferred font */
+}
 
+/* Change the background color on hover */
+.button:hover {
+  background-color: #666; /* Even lighter grey on hover */
+}
 
