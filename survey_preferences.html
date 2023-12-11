@@ -37,7 +37,7 @@
             .then(() => {
               console.log('Survey response sent to Firebase successfully!');
               // Optionally, reset the form or perform other actions, e.g. redirect to success.html
-              window.location.href = 'experiment.html';
+              window.location.href = 'success.html';
             })
             .catch(error => {
               console.error('Error sending survey response to Firebase:', error);
@@ -118,17 +118,25 @@
                 vel, luctus pulvinar, hendrerit id, lorem.
               </p>
               <div class="custom-survey add-top-margin add-bottom-margin">
-                <span class="text">1. What is the highest level of education you have completed?</span>
+                <span class="text">1. I am concerned about how my personal data is handled by online platforms and services.</span>
                 <div class="custom-radio-group-survey add-top-margin">
-                  <div><input type="checkbox" name="scenario-question-2" value="Highschool" id="scenario-question-2-item-1"> <label class="break-long-url" for="scenario-question-2-item-1">Highschool</label></div>
-                  <div><input type="checkbox" name="scenario-question-2" value="Vocational Training" id="scenario-question-2-item-2"> <label class="break-long-url" for="scenario-question-2-item-2">Vocational training</label></div>
-                  <div><input type="checkbox" name="scenario-question-2" value="University" id="scenario-question-2-item-3"> <label class="break-long-url" for="scenario-question-2-item-3">University</label></div>
+                  <div><input type="radio" name="scenario-question-1" value="Agree" id="scenario-question-1-item-1"> <label class="break-long-url" for="scenario-question-1-item-1">Agree</label></div>
+                  <div><input type="radio" name="scenario-question-1" value="Neutral" id="scenario-question-1-item-2"> <label class="break-long-url" for="scenario-question-1-item-2">Neutral</label></div>
+                  <div><input type="radio" name="scenario-question-1" value="Disagree" id="scenario-question-1-item-3"> <label class="break-long-url" for="scenario-question-1-item-3">Disagree</label></div>
+                </div>
+              </div>
+              <div class="custom-survey add-top-margin add-bottom-margin">
+                <span class="text">2. I feel confident navigating and using a variety of digital devices and applications.</span>
+                <div class="custom-radio-group-survey add-top-margin">
+                  <div><input type="checkbox" name="scenario-question-2" value="Agree" id="scenario-question-2-item-1"> <label class="break-long-url" for="scenario-question-2-item-1">Agree</label></div>
+                  <div><input type="checkbox" name="scenario-question-2" value="Neutral" id="scenario-question-2-item-2"> <label class="break-long-url" for="scenario-question-2-item-2">Neutral</label></div>
+                  <div><input type="checkbox" name="scenario-question-2" value="Disagree" id="scenario-question-2-item-3"> <label class="break-long-url" for="scenario-question-2-item-3">Disagree</label></div>
                 </div>
               </div>
               <div class="custom-survey add-top-margin add-bottom-margin">
                 
-              <label for="age">2. What is your age?</label>
-              <input type="number" id="age" name="age" required>
+              <label for="age">3. How many hours do you spend online per day?</label>
+              <input type="number" id="time" name="time" required>
               </div>
 
               <button type="submit">Submit</button>

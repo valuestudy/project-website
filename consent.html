@@ -29,18 +29,18 @@
   
         // Get a reference to the database
         const database = firebaseApp.database();
-        const surveyRef = database.ref('surveyResponses');
+        const consentRef = database.ref('consentResponses');
   
-        // Function to send survey responses to Firebase
+        // Function to send consent responses to Firebase
         function sendSurveyResponse(data) {
-          surveyRef.push(data)
+          consentRef.push(data)
             .then(() => {
               console.log('Survey response sent to Firebase successfully!');
               // Optionally, reset the form or perform other actions, e.g. redirect to success.html
-              window.location.href = 'experiment.html';
+              window.location.href = 'survey.html';
             })
             .catch(error => {
-              console.error('Error sending survey response to Firebase:', error);
+              console.error('Error sending consent response to Firebase:', error);
             });
         }
   
@@ -49,21 +49,21 @@
           event.preventDefault();
   
           // Get form data
-          const surveyForm = document.getElementById('surveyForm');
-          const formData = new FormData(surveyForm);
+          const consentForm = document.getElementById('consentForm');
+          const formData = new FormData(consentForm);
           const data = {};
           formData.forEach((value, key) => {
             data[key] = value;
           });
   
-          // Call the function to send survey response to Firebase
+          // Call the function to send consent response to Firebase
           sendSurveyResponse(data);
         }
   
         // Continue with your code...
-        const surveyForm = document.getElementById('surveyForm');
+        const consentForm = document.getElementById('consentForm');
   
-        surveyForm.addEventListener('submit', handleFormSubmission);
+        consentForm.addEventListener('submit', handleFormSubmission);
       });
     </script>
   </head>
@@ -107,33 +107,50 @@
 
 <body>
   <!-- Your HTML Survey Form -->
-  <div class="flex-row"><form id="surveyForm">
-            <div class="flex-item flex-column">
-              <h2 id="Survey">Survey</h2>
-              <hr>
-              <p class="text">
-                Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-                augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-                condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
-                vel, luctus pulvinar, hendrerit id, lorem.
-              </p>
-              <div class="custom-survey add-top-margin add-bottom-margin">
-                <span class="text">1. What is the highest level of education you have completed?</span>
-                <div class="custom-radio-group-survey add-top-margin">
-                  <div><input type="checkbox" name="scenario-question-2" value="Highschool" id="scenario-question-2-item-1"> <label class="break-long-url" for="scenario-question-2-item-1">Highschool</label></div>
-                  <div><input type="checkbox" name="scenario-question-2" value="Vocational Training" id="scenario-question-2-item-2"> <label class="break-long-url" for="scenario-question-2-item-2">Vocational training</label></div>
-                  <div><input type="checkbox" name="scenario-question-2" value="University" id="scenario-question-2-item-3"> <label class="break-long-url" for="scenario-question-2-item-3">University</label></div>
-                </div>
-              </div>
-              <div class="custom-survey add-top-margin add-bottom-margin">
-                
-              <label for="age">2. What is your age?</label>
-              <input type="number" id="age" name="age" required>
-              </div>
+  <div class="flex-row"><h2>Research Study Consent Form</h2>
 
-              <button type="submit">Submit</button>
-            </div></form>
-          
+    <p>
+      You are invited to participate in a research study conducted by [Researcher/Institution Name]. The purpose of this study is to [briefly describe the main objective of the study].
+    </p>
+    
+    <!-- Other information, eligibility criteria, and study details can be added here -->
+    
+    <h3>Voluntary Participation:</h3>
+    <p>Your participation in this study is entirely voluntary. You are free to withdraw at any time without penalty or loss of benefits.</p>
+    
+    <h3>Confidentiality:</h3>
+    <p>All information collected during this study will be kept confidential. Your identity will be protected, and data will be reported in aggregate form. No personally identifiable information will be disclosed.</p>
+    
+    <h3>Risks and Benefits:</h3>
+    <p>[Outline any potential risks and benefits associated with participation in the study. Be transparent about what participants can expect.]</p>
+    
+    <h3>Informed Consent:</h3>
+    <p>
+      By agreeing to participate, you acknowledge that you have read and understood the information provided in this consent form. You have had the opportunity to ask questions and have received satisfactory answers.
+    </p>
+    
+    <h3>Contact Information:</h3>
+    <p>If you have any questions or concerns about the study, you may contact the Principal Investigator, [Name], at [Email Address, Phone Number].</p>
+    
+    <!-- Consent Agreement Form -->
+    <h3>Consent Agreement:</h3>
+    <form id="consentForm">
+        <p>I have read the information provided in this consent form, and I voluntarily agree to participate in the study.</p>
+    
+        <label for="consentYes">Yes</label>
+        <input type="radio" id="consentYes" name="consent" value="yes">
+    
+        <label for="consentNo">No</label>
+        <input type="radio" id="consentNo" name="consent" value="no">
+    
+        <br>
+        <br>
+    
+        <!-- Participant's Name and Date fields can be added here if needed -->
+    
+        <button type="submit">Submit</button>
+    
+    </form>
               
 
             </div>

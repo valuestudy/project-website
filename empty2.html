@@ -1,179 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Website</title>
-  <!-- Add your other meta tags, stylesheets, etc. here -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willingness To Accept Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
 
-  <style>
-    dialog {
-      z-index: 10;
-      margin-top: 10px;
-      background: darkgrey;
-      border: none;
-      border-radius: 1rem;
-    }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
 
-    dialog::backdrop {
-      background-color: hsla(252, 3%, 39%, 0.573);
-    }
+        select {
+            padding: 8px;
+            font-size: 16px;
+        }
 
-    .cookie-banner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .cookie-button {
-      margin-top: 10px;
-      padding: 10px;
-      cursor: pointer;
-    }
-
-    .accept-button {
-      background-color: green;
-      color: white;
-    }
-
-    .decline-button {
-      background-color: red;
-      color: white;
-    }
-
-    .grey-design .cookie-button {
-      background-color: grey;
-      color: white;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 20px;
-      color: #000;
-      cursor: pointer;
-    }
-  </style>
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    </style>
+    
 </head>
+
+<!-- Add Firebase SDK Scripts with defer attribute -->
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-database-compat.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/firebaseui@6.14.2/dist/firebaseui.js"></script>
+
+<!-- Firebase Configuration Script -->
+
+    <script>
+
+      document.addEventListener("DOMContentLoaded", function() {
+        const firebaseConfig = {
+          apiKey: "AIzaSyDF1e_FBAv4P1krAwTKVyP3F5g4knp4Hew",
+          authDomain: "valuestudy.firebaseapp.com",
+          databaseURL: "https://valuestudy-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "valuestudy",
+          storageBucket: "valuestudy.appspot.com",
+          messagingSenderId: "1092513324979",
+          appId: "1:1092513324979:web:b6823acdd1d63aca5935c6"
+        };
+  
+        // Initialize Firebase after the DOM has been fully loaded
+        const firebaseApp = firebase.initializeApp(firebaseConfig);
+         const provider = new GoogleAuthProvider()
+      })
+        </script>
 <body>
 
-  <!-- Modal -->
-  <dialog>
-    <div class="cookie-banner" id="cookieBanner">
-      <p>This website uses cookies to ensure you get the best experience on our website.</p>
-      <button id="accept-cookie" class="cookie-button accept-button" onclick="acceptCookies()">Accept</button>
-      <button id="decline-cookie" class="cookie-button decline-button" onclick="declineCookies()">Decline</button>
+
+    <h2>Willingness To Accept Form</h2>
+
+    <form id="wtaForm">
+        <label for="wta">Select Your Stated Willingness To Accept (WTA):</label>
+        <select id="wta" name="wta">
+            <option value="0.00">0.00 EUR</option>
+            <option value="0.50">0.50 EUR</option>
+            <option value="1.00">1.00 EUR</option>
+            <option value="1.50">1.50 EUR</option>
+            <option value="2.00">2.00 EUR</option>
+            <option value="2.50">2.50 EUR</option>
+            <option value="3.00">3.00 EUR</option>
+            <option value="3.50">3.50 EUR</option>
+            <option value="4.00">4.00 EUR</option>
+            <option value="4.50">4.50 EUR</option>
+            <option value="5.00">5.00 EUR</option>
+        </select>
+
+        <br>
+
+        <button id="simulateButton" type="button" onclick="simulateExperiment()">Simulate Experiment</button>
+        <button id="showPriceButton" type="button" onclick="showAssignedPrice()" style="display: none;">Show Assigned Price</button>
+        <button id="continueButton" type="button" onclick="continueToSurvey()" style="display: none;">Continue to Survey</button>
+    </form>
+
+
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <div id="googleSignInContainer" style="display: none;">
+        <div id="g_id_onload"
+            data-client_id="1092513324979-549ab8n091mq248s5ltngh19o9p0u876.apps.googleusercontent.com"
+            data-context="signin"
+            data-ux_mode="redirect"
+            data-login_uri="http://localhost:5000/survey.html/"
+            data-itp_support="true">
+        </div>
+
+        <div class="g_id_signin"
+                data-type="standard"
+                data-shape="pill"
+                data-theme="outline"
+                data-text="continue_with"
+                data-size="large"
+                data-logo_alignment="left"
+                data-width="200">
+        </div>
     </div>
-  </dialog>
 
-  <script>
-    const dialogElement = document.querySelector("dialog");
+    <script>
+        let assignedPrice;
+        let experimentConducted = false;
 
-    // Show the dialog when the page loads
-    dialogElement.showModal();
+        function simulateExperiment() {
+            if (experimentConducted) {
+                alert("Experiment has already been conducted. You cannot redo it.");
+                return;
+            }
 
-    function acceptCookies() {
-      // Handle logic for accepting cookies
-      console.log("Cookies accepted");
-      dialogElement.close();
-    }
+            // Get the selected WTA value
+            const selectedWTA = parseFloat(document.getElementById("wta").value);
 
-    function declineCookies() {
-      // Handle logic for declining cookies
-      console.log("Cookies declined");
-      dialogElement.close();
-    }
+            // Simulate the random assignment of a price
+            assignedPrice = Math.random() * 5; // Random number between 0 and 5
 
-    // Function to randomly change the appearance of the cookie banner
-    function randomizeCookieBanner() {
-      const cookieBanner = document.getElementById("cookieBanner");
-      const isGreyDesign = Math.random() < 0.5; // 50% chance of grey design
+            // Show the assigned price
+            alert(`Assigned Price: ${assignedPrice.toFixed(2)} EUR`);
 
-      if (isGreyDesign) {
-        cookieBanner.classList.add("grey-design");
-      }
-    }
+            // Compare the random price with the selected WTA
+            if (assignedPrice > selectedWTA) {
+                document.getElementById("showPriceButton").style.display = "block";
+                document.getElementById("continueButton").style.display = "none";
 
-    // Call the function to randomize the cookie banner appearance
-    randomizeCookieBanner();
-  </script>
+                // Display the Google Sign-In container
+                document.getElementById("googleSignInContainer").style.display = "block";
+            } else {
+                alert(`You do not need to log in. Continue with the survey.`);
+            }
+
+            // Disable the form after the experiment is conducted
+            experimentConducted = true;
+            document.getElementById("simulateButton").disabled = true;
+        }
+
+        function showAssignedPrice() {
+            if (assignedPrice === undefined) {
+                alert(`Please simulate the experiment first.`);
+            } else {
+                alert(`Assigned Price: ${assignedPrice.toFixed(2)} EUR`);
+            }
+        }
+
+        function continueToSurvey() {
+            // Redirect to the survey page (replace "survey.html" with the actual page URL)
+            window.location.href = "survey.html";
+        }
+    </script>
+
+
+<script>
+  function onSignIn(googleUser) {
+    // Get the user's profile information
+    var profile = googleUser.getBasicProfile();
+    
+    console.log('ID: ' + profile.getId());
+    console.log('Name: ' + profile.getName());
+    console.log('Email: ' + profile.getEmail());
+
+    // Redirect to another page
+    window.location.href = '/survey.html/';  // Replace with your desired URL
+  }
+</script>
+
+
 
 </body>
-
-<head>
-  <title>Value Study</title>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/menu.js"></script>
-  <script src="js/footer.js"></script>
-  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
-
-
-</head>
-
-<body>
-  <div class="menu-container"></div>
-  <div class="content-container">
-    <!-------------------------------------------------------------------------------------------->
-    <!--Start Header-->
-    <div class="banner" style="background: url('img/example-scene.svg') no-repeat center; background-size: contain; height: 300px;"></div>
-    <div class="banner" style="color: black;  background-color: rgb(255, 225, 0); max-width: 900px; margin: 0 auto;">
-      <div class="banner-table flex-column">
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-          <h2 class="add-top-margin-small">Thanks for participating in our study!</h2>
-          
-          <p class="text add-top-margin">
-            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-            augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-            condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
-            vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae
-            sapien ut libero venenatis faucibus. Nullam quis ante.
-          </p>
-          
-
-          <a href="survey.html" class="button">Take the Survey</a>
-          
-
-            
-    </div>
-
-
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
 </html>

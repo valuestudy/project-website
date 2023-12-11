@@ -1,4 +1,4 @@
-import { initalizeApp } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js' ;
+import { initalizeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js' ;
 import { getAuth } from 'firebase/auth';
 import { getDatabase, ref, set, get, child } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js' ;
 
