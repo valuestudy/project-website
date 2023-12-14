@@ -136,7 +136,16 @@ dialog::backdrop {
   background-color: #666; /* Even lighter grey on hover */
 }
 
-
+.small-button {
+  display: inline;
+  padding: 10px 20px;
+  background-color: #6a6b6d;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
 
 
 
