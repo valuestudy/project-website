@@ -258,6 +258,7 @@ hr {
   position: relative;
   width: 100%;
   min-width: 300px;
+  margin-top: 50px;
 }
 
 .content {
@@ -322,7 +323,7 @@ hr {
 .banner h3,
 .banner p,
 .banner span {
-  color: white;
+  color: black;
 }
 
 .banner .flex-item {

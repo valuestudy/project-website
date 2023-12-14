@@ -36,6 +36,7 @@
   transition: background-color 0.1s, box-shadow 0.1s, border 0.1s;
   text-decoration: none;
   display: block;
+  margin-bottom: 8px;
   box-sizing: border-box;
   color: white;
   border: 1px solid #7d7d7d;
