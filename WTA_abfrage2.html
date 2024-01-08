@@ -235,9 +235,11 @@
     <div class="banner-table flex-column">
       <div class="flex-row">
         <div class="flex-item flex-column">
+          
         <h3>b)	Angabe Ihrer Zahlungsbereitschaft </h3>
 
-      <div class="flex-row">
+        <br>
+        <br>
 
         <form id="wtaForm">
             <label for="wta">Ich wäre für einen Betrag von:</label>
@@ -257,16 +259,23 @@
             <br>
             bereit, mich mit meinem Google Konto ein zu loggen, bevor ich mit der Umfrage fortfahre.
             <br>
-            <div id="revealedText" style="display: none;">
-              <!-- This text will be revealed after clicking the simulateButton -->
-              <p>This text is revealed after clicking the button.</p>
-          </div>
-            <button id="simulateButton" type="button" onclick="simulateExperiment()">Bestätigen</button>
+          
 
+
+
+          <button id="simulateButton" type="button" onclick="simulateExperiment()">Bestätigen</button>
+
+              <!-- Add this element to display the assigned price as text on the website -->
+            <div id="assignedPriceText" style="margin-top: 10px;"></div>
+
+            <button id="weiterButton" type="button" onclick="weiterButtonClick()" style="display: none;">Weiter</button>
+
+
+              <!-- Add this element to display additional text if needed -->
+              <div id="additionalText" style="margin-top: 10px;"></div>
             <br>
             
-            <button id="showPriceButton" type="button" onclick="showAssignedPrice()" style="display: none;">Show Assigned Price</button>
-            <button id="continueButton" type="button" onclick="continueToSurvey()" style="display: none;">Continue to Survey</button>
+
 
             
         </form>
@@ -284,7 +293,7 @@
                     <path fill="none" d="M0 0h48v48H0z"></path>
                   </svg>
                 </div>
-                <span class="gsi-material-button-contents">Sign in with Google to continue</span>
+                <span class="gsi-material-button-contents">Melden Sie sich bei Google an um fortzufahren</span>
                 <span style="display: none;">Sign in with Google</span>
               </div>
             </button>
@@ -296,61 +305,70 @@
         </div>
     </div>
     </div>
-</div>
+</div> 
 
-    <script>
-        let assignedPrice;
-        let experimentConducted = false;
+<script>
+  let assignedPrice;
+  let experimentConducted = false;
 
-        function simulateExperiment() {
-            if (experimentConducted) {
-                alert("Experiment has already been conducted. You cannot redo it.");
-                return;
-            }
-
-            // Get the selected WTA value
-            const selectedWTA = parseFloat(document.getElementById("wta").value);
-
-            // Simulate the random assignment of a price
-            assignedPrice = Math.random() * 5; // Random number between 0 and 5
-
-            // Show the assigned price
-            alert(`Assigned Price: ${assignedPrice.toFixed(2)} EUR`);
-
-            // Compare the random price with the selected WTA
-            if (assignedPrice > selectedWTA) {
-                document.getElementById("showPriceButton").style.display = "block";
-                document.getElementById("continueButton").style.display = "none";
-
-                // Display the Google Sign-In container
-                document.getElementById("googleSignInContainer").style.display = "block";
-            } else {
-                alert(`You do not need to log in with your Google Account. You will get redirected to the survey.`);
-                window.location.href = "survey_preferences.html";
-            }
-
-            // Disable the form after the experiment is conducted
-            experimentConducted = true;
-            document.getElementById("simulateButton").disabled = true;
-
-            // After the simulation logic, reveal the text
-            document.getElementById("revealedText").style.display = "block";
+  function simulateExperiment() {
+        // Check if the experiment has already been conducted
+        if (experimentConducted) {
+            alert("Experiment has already been conducted. You cannot redo it.");
+            return;
         }
 
-        function showAssignedPrice() {
-            if (assignedPrice === undefined) {
-                alert(`Please simulate the experiment first.`);
-            } else {
-                alert(`Assigned Price: ${assignedPrice.toFixed(2)} EUR`);
-            }
+        // Get the selected WTA value
+        const selectedWTA = parseFloat(document.getElementById("wta").value);
+
+        // Simulate the random assignment of a price
+        assignedPrice = Math.random() * 5; // Random number between 0 and 5
+
+        // Show the assigned price on the webpage
+        document.getElementById("assignedPriceText").innerText = `Sie haben angegeben, gegen eine Zahlung von ${selectedWTA.toFixed(2)},- EUR bereit zu sein, sich mit Ihrem Google Account anzumelden. Vielen Dank für diese Angabe. Der Preis für die Anmeldung wurde zufällig bestimmt. Er beträgt: ${assignedPrice.toFixed(2)} EUR.`;
+
+        // Compare the random price with the selected WTA
+        if (assignedPrice > selectedWTA) {
+            // Display the Google Sign-In container
+            document.getElementById("googleSignInContainer").style.display = "block";
+            // Show the text for prices above WTA
+            document.getElementById("additionalText").innerText = `Der ausgeloste Preis liegt über der von Ihnen angegebenen Bereitschaft. Sie erhalten am Ende der Umfrage eine zusätzliche Zahlung von ${assignedPrice.toFixed(2)} EUR. Bitte melden Sie sich jetzt mit Ihrem Google Konto an:`;
+            // Hide other buttons
+            document.getElementById("weiterButton").style.display = "none";
+            
+        } else {
+            // Show the Weiter button for prices below or equal to WTA
+            // Display additional text
+            document.getElementById("additionalText").innerText = "";
+            // Hide the Google Sign-In container
+            document.getElementById("googleSignInContainer").style.display = "none";
+            
+            document.getElementById("weiterButton").style.display = "block";
         }
 
-        function continueToSurvey() {
-            // Redirect to the survey page (replace "survey.html" with the actual page URL)
-            window.location.href = "survey_preferences.html";
-        }
-    </script>
+          // Set the flag to true after the experiment is conducted
+          experimentConducted = true;
+          document.getElementById("simulateButton").disabled = true;
+    }
 
+  function showAssignedPrice() {
+      if (assignedPrice === undefined) {
+          alert(`Please simulate the experiment first.`);
+      } else {
+          alert(`Assigned Price: ${assignedPrice.toFixed(2)} EUR`);
+      }
+  }
+
+  function continueToSurvey() {
+      // Redirect to the survey page (replace "survey.html" with the actual page URL)
+      window.location.href = "survey_preferences.html";
+  }
+
+  function weiterButtonClick() {
+      // Redirect to the survey page for prices above WTA
+      window.location.href = "survey_preferences.html";
+  }
+</script>
 
 <script>
   function onSignIn(googleUser) {
