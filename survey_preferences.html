@@ -109,37 +109,96 @@
   <!-- Your HTML Survey Form -->
   <div class="flex-row"><form id="surveyForm">
             <div class="flex-item flex-column-survey">
-              <h2 id="Survey">Survey</h2>
+              <h2 id="Survey">Datenschutz-Präferenzen</h2>
               <hr>
               <p class="text">
-                Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-                augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-                condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
-                vel, luctus pulvinar, hendrerit id, lorem.
+              Bitte beantworten Sie folgende Fragen zu Ihren Ansichten hinsichtlich Ihrer online Privatsphäre: 
               </p>
               <div class="custom-survey add-top-margin add-bottom-margin">
-                <span class="text">1. I am concerned about how my personal data is handled by online platforms and services.</span>
+                <span class="text">1. Es ist wichtig für mich, meine Privatsphäre im Internet zu schützen.</span>
                 <div class="custom-radio-group-survey add-top-margin">
-                  <div><input type="radio" name="scenario-question-1" value="Agree" id="scenario-question-1-item-1"> <label class="break-long-url" for="scenario-question-1-item-1">Agree</label></div>
-                  <div><input type="radio" name="scenario-question-1" value="Neutral" id="scenario-question-1-item-2"> <label class="break-long-url" for="scenario-question-1-item-2">Neutral</label></div>
-                  <div><input type="radio" name="scenario-question-1" value="Disagree" id="scenario-question-1-item-3"> <label class="break-long-url" for="scenario-question-1-item-3">Disagree</label></div>
+                    <div><input type="radio" name="scenario-question-1" value="Stimme voll zu" id="scenario-question-1-item-1"> <label class="break-long-url" for="scenario-question-1-item-1">Stimme voll zu</label></div>
+                    <div><input type="radio" name="scenario-question-1" value="Stimme zu" id="scenario-question-1-item-2"> <label class="break-long-url" for="scenario-question-1-item-2">Stimme zu</label></div>
+                    <div><input type="radio" name="scenario-question-1" value="Neutral" id="scenario-question-1-item-3"> <label class="break-long-url" for="scenario-question-1-item-3">Neutral</label></div>
+                    <div><input type="radio" name="scenario-question-1" value="Stimme nicht zu" id="scenario-question-1-item-4"> <label class="break-long-url" for="scenario-question-1-item-4">Stimme nicht zu</label></div>
+                    <div><input type="radio" name="scenario-question-1" value="Stimme gar nicht zu" id="scenario-question-1-item-5"> <label class="break-long-url" for="scenario-question-1-item-5">Stimme gar nicht zu</label></div>
                 </div>
+            </div>
+            
+            <div class="custom-survey add-top-margin add-bottom-margin">
+              <span class="text">2. Wenn ich Websites besuche, versuche ich normalerweise, so wenig Daten wie möglich preiszugeben.</span>
+              <div class="custom-radio-group-survey add-top-margin">
+                  <div><input type="radio" name="scenario-question-2" value="Stimme voll zu" id="scenario-question-2-item-1"> <label class="break-long-url" for="scenario-question-2-item-1">Stimme voll zu</label></div>
+                  <div><input type="radio" name="scenario-question-2" value="Stimme zu" id="scenario-question-2-item-2"> <label class="break-long-url" for="scenario-question-2-item-2">Stimme zu</label></div>
+                  <div><input type="radio" name="scenario-question-2" value="Neutral" id="scenario-question-2-item-3"> <label class="break-long-url" for="scenario-question-2-item-3">Neutral</label></div>
+                  <div><input type="radio" name="scenario-question-2" value="Stimme nicht zu" id="scenario-question-2-item-4"> <label class="break-long-url" for="scenario-question-2-item-4">Stimme nicht zu</label></div>
+                  <div><input type="radio" name="scenario-question-2" value="Stimme gar nicht zu" id="scenario-question-2-item-5"> <label class="break-long-url" for="scenario-question-2-item-5">Stimme gar nicht zu</label></div>
               </div>
-              <div class="custom-survey add-top-margin add-bottom-margin">
-                <span class="text">2. I feel confident navigating and using a variety of digital devices and applications.</span>
-                <div class="custom-radio-group-survey add-top-margin">
-                  <div><input type="checkbox" name="scenario-question-2" value="Agree" id="scenario-question-2-item-1"> <label class="break-long-url" for="scenario-question-2-item-1">Agree</label></div>
-                  <div><input type="checkbox" name="scenario-question-2" value="Neutral" id="scenario-question-2-item-2"> <label class="break-long-url" for="scenario-question-2-item-2">Neutral</label></div>
-                  <div><input type="checkbox" name="scenario-question-2" value="Disagree" id="scenario-question-2-item-3"> <label class="break-long-url" for="scenario-question-2-item-3">Disagree</label></div>
-                </div>
-              </div>
-              <div class="custom-survey add-top-margin add-bottom-margin">
-                
-              <label for="age">3. How many hours do you spend online per day?</label>
-              <input type="number" id="time" name="time" required>
-              </div>
+          </div>
 
-              <button type="submit">Submit</button>
+          <div class="custom-survey add-top-margin add-bottom-margin">
+            <span class="text">3. Ich schätze personalisierte Werbung, die auf meinen vorherigen Online-Aktivitäten zugeschnitten sind.</span>
+            <div class="custom-radio-group-survey add-top-margin">
+                <div><input type="radio" name="scenario-question-3" value="Stimme voll zu" id="scenario-question-3-item-1"> <label class="break-long-url" for="scenario-question-3-item-1">Stimme voll zu</label></div>
+                <div><input type="radio" name="scenario-question-3" value="Stimme zu" id="scenario-question-3-item-2"> <label class="break-long-url" for="scenario-question-3-item-2">Stimme zu</label></div>
+                <div><input type="radio" name="scenario-question-3" value="Neutral" id="scenario-question-3-item-3"> <label class="break-long-url" for="scenario-question-3-item-3">Neutral</label></div>
+                <div><input type="radio" name="scenario-question-3" value="Stimme nicht zu" id="scenario-question-3-item-4"> <label class="break-long-url" for="scenario-question-3-item-4">Stimme nicht zu</label></div>
+                <div><input type="radio" name="scenario-question-3" value="Stimme gar nicht zu" id="scenario-question-3-item-5"> <label class="break-long-url" for="scenario-question-3-item-5">Stimme gar nicht zu</label></div>
+            </div>
+          </div>
+
+
+            <div class="custom-survey add-top-margin add-bottom-margin">
+              <span class="text">4. Im Allgemeinen, wie besorgt sind Sie um Ihre Privatsphäre bei der Nutzung des Internets?</span>
+              <div class="custom-radio-group-survey add-top-margin">
+                  <div><input type="radio" name="scenario-question-4" value="Stimme voll zu" id="scenario-question-4-item-1"> <label class="break-long-url" for="scenario-question-4-item-1">Stimme voll zu</label></div>
+                  <div><input type="radio" name="scenario-question-4" value="Stimme zu" id="scenario-question-4-item-2"> <label class="break-long-url" for="scenario-question-4-item-2">Stimme zu</label></div>
+                  <div><input type="radio" name="scenario-question-4" value="Neutral" id="scenario-question-4-item-3"> <label class="break-long-url" for="scenario-question-4-item-3">Neutral</label></div>
+                  <div><input type="radio" name="scenario-question-4" value="Stimme nicht zu" id="scenario-question-4-item-4"> <label class="break-long-url" for="scenario-question-4-item-4">Stimme nicht zu</label></div>
+                  <div><input type="radio" name="scenario-question-4" value="Stimme gar nicht zu" id="scenario-question-4-item-5"> <label class="break-long-url" for="scenario-question-4-item-5">Stimme gar nicht zu</label></div>
+              </div>
+          </div>
+
+          <div class="custom-survey add-top-margin add-bottom-margin">
+            <span class="text">5. Sind Sie besorgt darüber, dass Online-Organisationen nicht sind, wer sie vorgeben zu sein?</span>
+            <div class="custom-radio-group-survey add-top-margin">
+                <div><input type="radio" name="scenario-question-5" value="Stimme voll zu" id="scenario-question-5-item-1"> <label class="break-long-url" for="scenario-question-5-item-1">Stimme voll zu</label></div>
+                <div><input type="radio" name="scenario-question-5" value="Stimme zu" id="scenario-question-5-item-2"> <label class="break-long-url" for="scenario-question-5-item-2">Stimme zu</label></div>
+                <div><input type="radio" name="scenario-question-5" value="Neutral" id="scenario-question-5-item-3"> <label class="break-long-url" for="scenario-question-5-item-3">Neutral</label></div>
+                <div><input type="radio" name="scenario-question-5" value="Stimme nicht zu" id="scenario-question-5-item-4"> <label class="break-long-url" for="scenario-question-5-item-4">Stimme nicht zu</label></div>
+                <div><input type="radio" name="scenario-question-5" value="Stimme gar nicht zu" id="scenario-question-5-item-5"> <label class="break-long-url" for="scenario-question-5-item-5">Stimme gar nicht zu</label></div>
+            </div>
+        </div>
+
+        <div class="custom-survey add-top-margin add-bottom-margin">
+          <span class="text">6. Sind Sie besorgt, dass Sie bei der Anmeldung oder bei Online-Einkäufen zu viele persönliche Informationen angeben müssen?</span>
+          <div class="custom-radio-group-survey add-top-margin">
+              <div><input type="radio" name="scenario-question-6" value="Stimme voll zu" id="scenario-question-6-item-1"> <label class="break-long-url" for="scenario-question-6-item-1">Stimme voll zu</label></div>
+              <div><input type="radio" name="scenario-question-6" value="Stimme zu" id="scenario-question-6-item-2"> <label class="break-long-url" for="scenario-question-6-item-2">Stimme zu</label></div>
+              <div><input type="radio" name="scenario-question-6" value="Neutral" id="scenario-question-6-item-3"> <label class="break-long-url" for="scenario-question-6-item-3">Neutral</label></div>
+              <div><input type="radio" name="scenario-question-6" value="Stimme nicht zu" id="scenario-question-6-item-4"> <label class="break-long-url" for="scenario-question-6-item-4">Stimme nicht zu</label></div>
+              <div><input type="radio" name="scenario-question-6" value="Stimme gar nicht zu" id="scenario-question-6-item-5"> <label class="break-long-url" for="scenario-question-6-item-5">Stimme gar nicht zu</label></div>
+          </div>
+      </div>
+      
+        
+      <div class="custom-survey add-top-margin add-bottom-margin">
+        <span class="text">4. Sind Sie besorgt über Identitätsdiebstahl im Internet?</span>
+        <div class="custom-radio-group-survey add-top-margin">
+            <div><input type="radio" name="scenario-question-7" value="Stimme voll zu" id="scenario-question-7-item-1"> <label class="break-long-url" for="scenario-question-7-item-1">Stimme voll zu</label></div>
+            <div><input type="radio" name="scenario-question-7" value="Stimme zu" id="scenario-question-7-item-2"> <label class="break-long-url" for="scenario-question-7-item-2">Stimme zu</label></div>
+            <div><input type="radio" name="scenario-question-7" value="Neutral" id="scenario-question-7-item-3"> <label class="break-long-url" for="scenario-question-7-item-3">Neutral</label></div>
+            <div><input type="radio" name="scenario-question-7" value="Stimme nicht zu" id="scenario-question-7-item-4"> <label class="break-long-url" for="scenario-question-7-item-4">Stimme nicht zu</label></div>
+            <div><input type="radio" name="scenario-question-7" value="Stimme gar nicht zu" id="scenario-question-7-item-5"> <label class="break-long-url" for="scenario-question-7-item-5">Stimme gar nicht zu</label></div>
+        </div>
+    </div>
+    
+        
+        
+          
+      
+
+    <button type="button" onclick="validateAndSubmit()">Weiter</button>
             </div></form>
           
               
@@ -151,7 +210,32 @@
 
 
         </div>
-        
+        <script>
+          function validateAndSubmit() {
+            // Get all radio groups
+            const radioGroups = document.querySelectorAll('.custom-radio-group-survey');
+      
+            // Check if all radio groups have a selected option
+            const isValid = Array.from(radioGroups).every(group => {
+              const selectedOption = group.querySelector('input[type="radio"]:checked');
+              return selectedOption !== null;
+            });
+      
+            // If all questions are answered, submit the form
+            if (isValid) {
+              handleFormSubmission();
+            } else {
+              alert('Bitte beantworten Sie alle Fragen.');
+            }
+          }
+      
+          // Rest of your existing JavaScript code...
+      
+          // Function to handle form submission
+          function handleFormSubmission() {
+            window.location.href = 'success.html';
+          }
+        </script>
       </div>
     </div>
     <div class="footer-container"></div>
