@@ -10,12 +10,21 @@
   <!-- Modal -->
   <dialog>
     <div class="cookie-banner" id="cookieBanner">
-      <p>This website uses cookies to ensure you get the best experience on our website.</p>
-      <button id="accept-cookie" class="cookie-button accept-button" onclick="acceptCookies()">Accept</button>
-      <button id="decline-cookie" class="cookie-button decline-button" onclick="declineCookies()">Decline</button>
+      <h2>Cookie Einstellungen</h2>
+      <br>
+      <p class="cookie-text">
+        Wir verwenden Cookies und ähnliche Technologien, um Ihr Surferlebnis zu verbessern, den Website-Verkehr zu analysieren und personalisierte Inhalte anzubieten.
+        Für weitere Informationen lesen Sie bitte unsere <a href="/privacy.html" class="cookie-link" target="_blank">Datenschutzrichtlinie</a>.
+      <br>
+      <br>
+      </p>
+      <div class="cookie-buttons">
+        <button id="accept-cookie" class="cookie-button accept-button" onclick="acceptCookies()">Alle Cookies akzeptieren</button>
+        <button id="decline-cookie" class="cookie-button decline-button" onclick="declineCookies()">Ablehnen</button>
+      </div>
     </div>
   </dialog>
-
+  
   <script>
     const dialogElement = document.querySelector("dialog");
 
