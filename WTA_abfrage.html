@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Study</title>
+
+ 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 8px;
+            margin-top: 10px;
+        }
+        
+      /* For the design of the Google button */
+
+      
+      .gsi-material-button {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -webkit-appearance: none;
+        background-color: WHITE;
+        background-image: none;
+        border: 1px solid #747775;
+        -webkit-border-radius: 20px;
+        border-radius: 20px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        color: #1f1f1f;
+        cursor: pointer;
+        font-family: 'Roboto', arial, sans-serif;
+        font-size: 14px;
+        height: 40px;
+        letter-spacing: 0.25px;
+        outline: none;
+        overflow: hidden;
+        padding: 0 12px;
+        position: relative;
+        text-align: center;
+        -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+        transition: background-color .218s, border-color .218s, box-shadow .218s;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: auto;
+        max-width: 400px;
+        min-width: min-content;
+      }
+
+      .gsi-material-button .gsi-material-button-icon {
+        height: 20px;
+        margin-right: 12px;
+        min-width: 20px;
+        width: 20px;
+      }
+
+      .gsi-material-button .gsi-material-button-content-wrapper {
+        -webkit-align-items: center;
+        align-items: center;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        height: 100%;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+      }
+
+      .gsi-material-button .gsi-material-button-contents {
+        -webkit-flex-grow: 1;
+        flex-grow: 1;
+        font-family: 'Roboto', arial, sans-serif;
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: top;
+      }
+
+      .gsi-material-button .gsi-material-button-state {
+        -webkit-transition: opacity .218s;
+        transition: opacity .218s;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .gsi-material-button:disabled {
+        cursor: default;
+        background-color: #ffffff61;
+        border-color: #1f1f1f1f;
+      }
+
+      .gsi-material-button:disabled .gsi-material-button-contents {
+        opacity: 38%;
+      }
+
+      .gsi-material-button:disabled .gsi-material-button-icon {
+        opacity: 38%;
+      }
+
+      .gsi-material-button:not(:disabled):active .gsi-material-button-state, 
+      .gsi-material-button:not(:disabled):focus .gsi-material-button-state {
+        background-color: #303030;
+        opacity: 12%;
+      }
+
+      .gsi-material-button:not(:disabled):hover {
+        -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+        box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+      }
+
+      .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
+        background-color: #303030;
+        opacity: 8%;
+      }
+
+
+
+    </style>
+    
+</head>
+
+
+<!-- Add Firebase SDK Scripts with defer attribute -->
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-database-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js" defer></script>
+    <!-- FirebaseUI CSS -->
+    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
+
+<!-- Firebase Configuration Script -->
+
+    <script>
+
+      document.addEventListener("DOMContentLoaded", function() {
+        const firebaseConfig = {
+          apiKey: "AIzaSyDF1e_FBAv4P1krAwTKVyP3F5g4knp4Hew",
+          authDomain: "valuestudy.firebaseapp.com",
+          databaseURL: "https://valuestudy-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "valuestudy",
+          storageBucket: "valuestudy.appspot.com",
+          messagingSenderId: "1092513324979",
+          appId: "1:1092513324979:web:b6823acdd1d63aca5935c6"
+        };
+
+        const firebaseApp = firebase.initializeApp(firebaseConfig);
+    })
+
+    
+</script>
+
+
+<title> Value Study </title>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/widgets.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/widgets.js"></script>
+<script src="js/util.js"></script>
+<script src="js/custom.js"></script>
+<style>
+  .menu-widget {
+    color: rgb(255, 255, 255) !important;
+    opacity: 1 !important;
+    font-weight: 700 !important;
+  }
+</style>
+</head>
+
+<script>
+    function signInWithGoogle() {
+      var provider = new firebase.auth.GoogleAuthProvider();
+  
+      firebase.auth().signInWithPopup(provider)
+        .then(function(result) {
+          // User is signed in.
+          var user = result.user;
+          console.log(user);
+
+          // Redirect to the next page after successful sign-in
+        window.location.href = '/survey_preferences.html';
+        })
+        .catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.error(errorCode, errorMessage);
+        });
+    }
+  </script>
+
+
+<body>
+<div class="menu-container"></div>
+<div class="content-container">
+  
+    <div class="banner" style="color: black;  background-color: rgb(209, 209, 209); max-width: 900px; margin: 0 auto;">
+    <div class="banner-table flex-column">
+      <div class="flex-row">
+        <div class="flex-item flex-column">
+        <h1> WTA-Abfrage  </h1>
+      <div class="flex-row">
+  
+        <h3>a)	Informationen über weitere Vergütungsmöglichkeiten</h3>
+        <p>
+            Wenn Sie diese Umfrage vollenden, erhalten Sie in jedem Fall eine Entlohnung von […] EUR. Darüber hinaus können Sie eine zusätzliche Entlohnung erhalten, wenn Sie sich in diesem Teil der Umfrage dazu entschließen, sich in Ihrem Google Konto auf dieser Webseite anzumelden. 
+            <br>
+            <br>
+            Sie werden im Folgenden gebeten, anzugeben, für welchen Betrag Sie bereit dazu wären, sich auf dieser Website mit Ihrem Google Konto anzumelden. Sie können einen Betrag zwischen 0,- EUR und 5,- EUR in 0,50 Cent Schritten angeben. Wollen Sie sich grundsätzlich nicht, oder nicht zu diesem Preis, mit Ihrem Google Account anmelden, können Sie die Schaltfläche „Ich möchte ohne Anmeldung mit der Umfrage fortfahren“ betätigen.
+            <br>
+            <br>
+            Entscheiden Sie sich dazu, einen Preis anzugeben, wird der für Ihre zusätzliche Auszahlung relevante Preis per Zufall bestimmt. 
+            
+        </p>
+
+        <ul>
+            
+            <li>
+            Beispiel 1: Sie geben eine Bereitschaft von 2,50 EUR an. Per Zufall wird der Preis auf 2,- EUR festgelegt. Dann fahren Sie mir der Umfrage fort, ohne dass Sie sich anmelden müssen. 
+            </li>
+            <br>
+            <li>
+            Beispiel 2: Sie geben eine Bereitschaft von 2,50 EUR an. Per Zufall wird der Preis auf 4,50 EUR festgelegt. Sie erhalten bei Beendigung der Umfrage 4,50 EUR zusätzlich zu dem Grundbetrag von […],- EUR. 
+            </li>
+            <br>
+            <li>
+            <b>Bitte beachten Sie:</b> Wenn Sie einen Preis angeben und dieser oder ein höherer Preis ausgelost wird, müssen Sie sich mit einem Google Account auf der Website anmelden. Andernfalls können Sie nicht mit der Umfrage fortfahren und erhalten auch keine Vergütung. 	
+            </li>
+        </ul>
+          
+        <!-- Button linking to /WTA_abfrage2.html -->
+    </div>
+        <a href="/WTA_abfrage2.html" class="button">Weiter</a>
+        
+          </div>
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <script>
+        let assignedPrice;
+        let experimentConducted = false;
+
+        function simulateExperiment() {
+            if (experimentConducted) {
+                alert("Experiment has already been conducted. You cannot redo it.");
+                return;
+            }
+
+            // Get the selected WTA value
+            const selectedWTA = parseFloat(document.getElementById("wta").value);
+
+            // Simulate the random assignment of a price
+            assignedPrice = Math.random() * 5; // Random number between 0 and 5
+
+            // Show the assigned price
+            alert(`Assigned Price: ${assignedPrice.toFixed(2)} EUR`);
+
+            // Compare the random price with the selected WTA
+            if (assignedPrice > selectedWTA) {
+                document.getElementById("showPriceButton").style.display = "block";
+                document.getElementById("continueButton").style.display = "none";
+
+                // Display the Google Sign-In container
+                document.getElementById("googleSignInContainer").style.display = "block";
+            } else {
+                alert(`You do not need to log in with your Google Account. You will get redirected to the survey.`);
+                window.location.href = "survey_preferences.html";
+            }
+
+            // Disable the form after the experiment is conducted
+            experimentConducted = true;
+            document.getElementById("simulateButton").disabled = true;
+        }
+
+        function showAssignedPrice() {
+            if (assignedPrice === undefined) {
+                alert(`Please simulate the experiment first.`);
+            } else {
+                alert(`Assigned Price: ${assignedPrice.toFixed(2)} EUR`);
+            }
+        }
+
+        function continueToSurvey() {
+            // Redirect to the survey page (replace "survey.html" with the actual page URL)
+            window.location.href = "survey_preferences.html";
+        }
+    </script>
+
+
+<script>
+  function onSignIn(googleUser) {
+    // Get the user's profile information
+    var profile = googleUser.getBasicProfile();
+    
+    console.log('ID: ' + profile.getId());
+    console.log('Name: ' + profile.getName());
+    console.log('Email: ' + profile.getEmail());
+
+    // Redirect to another page
+    window.location.href = '/survey_preferences.html/';  // Replace with your desired URL
+  }
+</script>
+
+
+
+
+<div class="footer-container"></div>
+</body>
+</html>

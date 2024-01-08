@@ -235,17 +235,12 @@
     <div class="banner-table flex-column">
       <div class="flex-row">
         <div class="flex-item flex-column">
-        <h2>Choose your Willigness to Accept</h2>
+        <h3>b)	Angabe Ihrer Zahlungsbereitschaft </h3>
+
       <div class="flex-row">
-  
-        <p>
-          Please select the amount you would be willing to accept to log-in with your Google Account. 
-            
-          
-        </p>
 
         <form id="wtaForm">
-            <label for="wta">Select Your Stated Willingness To Accept (WTA):</label>
+            <label for="wta">Ich wäre für einen Betrag von:</label>
             <select id="wta" name="wta">
                 <option value="0.00">0.00 EUR</option>
                 <option value="0.50">0.50 EUR</option>
@@ -259,11 +254,16 @@
                 <option value="4.50">4.50 EUR</option>
                 <option value="5.00">5.00 EUR</option>
             </select>
+            <br>
+            bereit, mich mit meinem Google Konto ein zu loggen, bevor ich mit der Umfrage fortfahre.
+            <br>
+            <div id="revealedText" style="display: none;">
+              <!-- This text will be revealed after clicking the simulateButton -->
+              <p>This text is revealed after clicking the button.</p>
+          </div>
+            <button id="simulateButton" type="button" onclick="simulateExperiment()">Bestätigen</button>
 
             <br>
-
-            <button id="simulateButton" type="button" onclick="simulateExperiment()">Simulate Experiment</button>
-
             
             <button id="showPriceButton" type="button" onclick="showAssignedPrice()" style="display: none;">Show Assigned Price</button>
             <button id="continueButton" type="button" onclick="continueToSurvey()" style="display: none;">Continue to Survey</button>
@@ -332,6 +332,9 @@
             // Disable the form after the experiment is conducted
             experimentConducted = true;
             document.getElementById("simulateButton").disabled = true;
+
+            // After the simulation logic, reveal the text
+            document.getElementById("revealedText").style.display = "block";
         }
 
         function showAssignedPrice() {
