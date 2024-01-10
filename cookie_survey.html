@@ -94,6 +94,15 @@
       opacity: 1 !important;
       font-weight: 700 !important;
     }
+
+   
+
+    img {
+        max-width: 40%; /* Make the image responsive */
+        height: auto; /* Maintain the image's aspect ratio */
+        margin: 0 auto; /* Center the image horizontally */
+        display: block; /* Remove extra spacing below the image */
+    }
   </style>
 </head>
 
@@ -117,7 +126,10 @@
               <div class="custom-survey add-top-margin add-bottom-margin">
                 <span class="text">
                     <h2> Ihre Wahrnehmung </h2>
-                    1. Insert: Picture Cookie Banner</span>
+                    <br>
+                    <img src="img/cookie_banner.png" alt="Cookie banner without dark pattern"></span>
+
+                    
                 <div class="custom-radio-group-survey add-top-margin">
                 <div><input type="radio" name="scenario-question-1" value="Dieser Cookie Banner ist unehrlich zu seinen Nutzern." id="scenario-question-1-item-6"> <label class="break-long-url" for="scenario-question-1-item-6">Dieser Cookie Banner ist unehrlich zu seinen Nutzern.</label></div>
                     <div><input type="radio" name="scenario-question-1" value="Dieser Cookie Banner versucht Nutzer zu einer Auswahl zu verleiten, die sie eigentlich nicht treffen wollen." id="scenario-question-1-item-7"> <label class="break-long-url" for="scenario-question-1-item-7">Dieser Cookie Banner versucht Nutzer zu einer Auswahl zu verleiten, die sie eigentlich nicht treffen wollen.</label></div>
@@ -138,15 +150,8 @@
                     <div><input type="radio" name="scenario-question-2" value="Ich bin zufrieden mit meiner Cookie Auswahl" id="scenario-question-2-item-4"> <label class="break-long-url" for="scenario-question-2-item-4">Ich bin zufrieden mit meiner Cookie Auswahl ⇔</label></div>
                 </div>
             </div>
-            
+            <button type="button" onclick="validateAndSubmit()">Weiter</button>
     </div>
-    
-        
-        
-          
-      
-
-    <button type="button" onclick="validateAndSubmit()">Weiter</button>
             </div></form>
           
               

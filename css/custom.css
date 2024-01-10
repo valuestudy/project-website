@@ -140,9 +140,8 @@ input[type="range"] {
   padding: 0;
 }
 
-form {
-  position: relative;
-  margin: 0 auto 20px 160px;
+p {
+  text-align: justify;
 }
 
 /* Style for the slider labels */

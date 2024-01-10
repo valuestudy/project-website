@@ -115,25 +115,50 @@
   <h2>Informationen zu dieser Studie</h2>
 
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-    <!-- Consent Agreement Form -->
-    <h3>Consent Agreement:</h3>
-<form id="consentForm">
-    <p>I have read the information provided in this consent form, and I voluntarily agree to participate in the study.</p>
-
-    <label for="consentYes">Yes</label>
-    <input type="radio" id="consentYes" name="consent" value="yes">
-
-    <label for="consentNo">No</label>
-    <input type="radio" id="consentNo" name="consent" value="no">
-
     <br>
     <br>
+    <h3>Einverständniserklärung</h3>
 
-    <!-- Participant's Name and Date fields can be added here if needed -->
+    <form id="consentForm">
+      <p>Ich habe die Informationen in dieser Einverständniserklärung gelesen und erkläre mich freiwillig bereit, an der Studie teilzunehmen.</p>
+  
+      <label for="consentYes">Ja</label>
+      <input type="radio" id="consentYes" name="consent" value="yes">
+  
+      <label for="consentNo">Nein</label>
+      <input type="radio" id="consentNo" name="consent" value="no">
+  
+      <br>
+      <br>
+  
+      <!-- Participant's Name and Date fields can be added here if needed -->
+  
+      <!-- Use a button for submission -->
+      
+  </form>
 
-    <!-- Use an anchor tag to create a button-like behavior -->
-    <a href="/WTA_abfrage.html" id="consentButton" class="button">Bestätigen</a>
-</form>
+  <button type="button" id="consentButton" class="button" onclick="validateConsent()">Bestätigen</button>
+  
+  <script>
+    function validateConsent() {
+        // Check if an option is selected
+        const consentYes = document.getElementById("consentYes");
+        const consentNo = document.getElementById("consentNo");
+        const consentButton = document.getElementById("consentButton");
+
+        if (consentYes.checked) {
+            // Proceed to the next page (replace the URL with the actual URL)
+            window.location.href = "/WTA_abfrage.html";
+        } else if (consentNo.checked) {
+            // Disable the button and show a pop-up
+            consentButton.disabled = true;
+            alert("Danke für Ihre Antwort. Sie können die Studie nun beenden.");
+        } else {
+            // Show a pop-up if no option is selected
+            alert("Bitte wählen Sie 'Ja' oder 'Nein' aus.");
+        }
+    }
+</script>
               
 
             </div>
