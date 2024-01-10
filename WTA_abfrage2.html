@@ -236,30 +236,51 @@
       <div class="flex-row">
         <div class="flex-item flex-column">
           
-        <h3>b)	Angabe Ihrer Zahlungsbereitschaft </h3>
+        <h2>Angabe Ihrer Zahlungsbereitschaft </h2>
 
         <br>
         <br>
-
+        
         <form id="wtaForm">
-            <label for="wta">Ich wäre für einen Betrag von:</label>
-            <select id="wta" name="wta">
-                <option value="0.00">0.00 EUR</option>
-                <option value="0.50">0.50 EUR</option>
-                <option value="1.00">1.00 EUR</option>
-                <option value="1.50">1.50 EUR</option>
-                <option value="2.00">2.00 EUR</option>
-                <option value="2.50">2.50 EUR</option>
-                <option value="3.00">3.00 EUR</option>
-                <option value="3.50">3.50 EUR</option>
-                <option value="4.00">4.00 EUR</option>
-                <option value="4.50">4.50 EUR</option>
-                <option value="5.00">5.00 EUR</option>
-            </select>
+          <label for="wta">Ich wäre für einen Betrag von:</label>
+          <div class="slider-container">
+            <input type="range" id="wta" name="wta" min="0" max="5" step="0.01" value="0" />
+            <div class="slider-labels">
+              <div class="label">0 EUR</div>
+              <div class="label">2.5 EUR</div>
+              <div class="label">5 EUR</div>
+            </div>
             <br>
-            bereit, mich mit meinem Google Konto ein zu loggen, bevor ich mit der Umfrage fortfahre.
-            <br>
-          
+          </div>
+        </form>
+        
+        <br>
+        <div class="chosen-price" id="chosenPrice"> 0.00 EUR bereit, mich mit meinem Google Konto ein zu loggen, bevor ich mit der Umfrage fortfahre. </div>
+
+      
+        <script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+                  const slider = document.getElementById("wta");
+                  const chosenPriceElement = document.getElementById('chosenPrice');
+
+                  // Function to update the chosen price
+                  function updateSliderValue() {
+                    const sliderValue = parseFloat(slider.value);
+                    chosenPriceElement.textContent = `${sliderValue.toFixed(2)} EUR bereit, mich mit meinem Google Konto ein zu loggen, bevor ich mit der Umfrage fortfahre. `;
+                  }
+
+                  // Add an event listener for the input event on the slider
+                  slider.addEventListener("input", updateSliderValue);
+
+                  // Initial update
+                  updateSliderValue();
+                });
+
+
+        </script>
+
+        
 
 
 

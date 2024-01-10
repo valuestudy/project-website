@@ -1,373 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Value Study</title>
-
- 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        select {
-            padding: 8px;
-            font-size: 16px;
-        }
-
-        button {
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-right: 10px;
-            margin-bottom: 8px;
-            margin-top: 10px;
-        }
-        
-      /* For the design of the Google button */
-
-      
-      .gsi-material-button {
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        -webkit-appearance: none;
-        background-color: WHITE;
-        background-image: none;
-        border: 1px solid #747775;
-        -webkit-border-radius: 20px;
-        border-radius: 20px;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        color: #1f1f1f;
-        cursor: pointer;
-        font-family: 'Roboto', arial, sans-serif;
-        font-size: 14px;
-        height: 40px;
-        letter-spacing: 0.25px;
-        outline: none;
-        overflow: hidden;
-        padding: 0 12px;
-        position: relative;
-        text-align: center;
-        -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
-        transition: background-color .218s, border-color .218s, box-shadow .218s;
-        vertical-align: middle;
-        white-space: nowrap;
-        width: auto;
-        max-width: 400px;
-        min-width: min-content;
-      }
-
-      .gsi-material-button .gsi-material-button-icon {
-        height: 20px;
-        margin-right: 12px;
-        min-width: 20px;
-        width: 20px;
-      }
-
-      .gsi-material-button .gsi-material-button-content-wrapper {
-        -webkit-align-items: center;
-        align-items: center;
-        display: flex;
-        -webkit-flex-direction: row;
-        flex-direction: row;
-        -webkit-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-        height: 100%;
-        justify-content: space-between;
-        position: relative;
-        width: 100%;
-      }
-
-      .gsi-material-button .gsi-material-button-contents {
-        -webkit-flex-grow: 1;
-        flex-grow: 1;
-        font-family: 'Roboto', arial, sans-serif;
-        font-weight: 500;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        vertical-align: top;
-      }
-
-      .gsi-material-button .gsi-material-button-state {
-        -webkit-transition: opacity .218s;
-        transition: opacity .218s;
-        bottom: 0;
-        left: 0;
-        opacity: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-
-      .gsi-material-button:disabled {
-        cursor: default;
-        background-color: #ffffff61;
-        border-color: #1f1f1f1f;
-      }
-
-      .gsi-material-button:disabled .gsi-material-button-contents {
-        opacity: 38%;
-      }
-
-      .gsi-material-button:disabled .gsi-material-button-icon {
-        opacity: 38%;
-      }
-
-      .gsi-material-button:not(:disabled):active .gsi-material-button-state, 
-      .gsi-material-button:not(:disabled):focus .gsi-material-button-state {
-        background-color: #303030;
-        opacity: 12%;
-      }
-
-      .gsi-material-button:not(:disabled):hover {
-        -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
-        box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
-      }
-
-      .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
-        background-color: #303030;
-        opacity: 8%;
-      }
-
-
-
-    </style>
-    
-</head>
-
-
-<!-- Add Firebase SDK Scripts with defer attribute -->
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-database-compat.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js" defer></script>
-    <!-- FirebaseUI CSS -->
-    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
-
-<!-- Firebase Configuration Script -->
-
-    <script>
-
-      document.addEventListener("DOMContentLoaded", function() {
-        const firebaseConfig = {
-          apiKey: "AIzaSyDF1e_FBAv4P1krAwTKVyP3F5g4knp4Hew",
-          authDomain: "valuestudy.firebaseapp.com",
-          databaseURL: "https://valuestudy-default-rtdb.europe-west1.firebasedatabase.app",
-          projectId: "valuestudy",
-          storageBucket: "valuestudy.appspot.com",
-          messagingSenderId: "1092513324979",
-          appId: "1:1092513324979:web:b6823acdd1d63aca5935c6"
-        };
-
-        const firebaseApp = firebase.initializeApp(firebaseConfig);
-    })
-
-    
-</script>
-
-
-<title> Value Study </title>
-<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="css/widgets.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="js/menu.js"></script>
-<script src="js/footer.js"></script>
-<script src="js/widgets.js"></script>
-<script src="js/util.js"></script>
-<script src="js/custom.js"></script>
-<style>
-  .menu-widget {
-    color: rgb(255, 255, 255) !important;
-    opacity: 1 !important;
-    font-weight: 700 !important;
-  }
-</style>
-</head>
-
-<script>
-    function signInWithGoogle() {
-      var provider = new firebase.auth.GoogleAuthProvider();
-  
-      firebase.auth().signInWithPopup(provider)
-        .then(function(result) {
-          // User is signed in.
-          var user = result.user;
-          console.log(user);
-
-          // Redirect to the next page after successful sign-in
-        window.location.href = '/survey_preferences.html';
-        })
-        .catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          console.error(errorCode, errorMessage);
-        });
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .slider-container {
+      width: 50%; /* Adjust the width as needed */
+      margin: auto;
+      position: relative;
     }
-  </script>
 
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 10px;
+      background: #ddd; /* Background color of the slider track */
+      border-radius: 5px;
+      outline: none;
+      margin: 0;
+    }
 
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px; /* Width of the slider thumb */
+      height: 20px; /* Height of the slider thumb */
+      background: #3498db; /* Background color of the slider thumb */
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 10px;
+      background: #ddd; /* Background color of the slider track */
+      border-radius: 5px;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track::before {
+      content: '';
+      width: 0%;
+      height: 10px;
+      background: #3498db; /* Background color of the selected portion */
+      border-radius: 5px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    output {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
 <body>
-<div class="menu-container"></div>
-<div class="content-container">
-  
-    <div class="banner" style="color: black;  background-color: rgb(209, 209, 209); max-width: 900px; margin: 0 auto;">
-    <div class="banner-table flex-column">
-      <div class="flex-row">
-        <div class="flex-item flex-column">
-        <h3>b)	Angabe Ihrer Zahlungsbereitschaft </h3>
 
-      <div class="flex-row">
-
-        <form id="wtaForm">
-            <label for="wta">Ich wäre für einen Betrag von:</label>
-            <select id="wta" name="wta">
-                <option value="0.00">0.00 EUR</option>
-                <option value="0.50">0.50 EUR</option>
-                <option value="1.00">1.00 EUR</option>
-                <option value="1.50">1.50 EUR</option>
-                <option value="2.00">2.00 EUR</option>
-                <option value="2.50">2.50 EUR</option>
-                <option value="3.00">3.00 EUR</option>
-                <option value="3.50">3.50 EUR</option>
-                <option value="4.00">4.00 EUR</option>
-                <option value="4.50">4.50 EUR</option>
-                <option value="5.00">5.00 EUR</option>
-            </select>
-            <br>
-            bereit, mich mit meinem Google Konto ein zu loggen, bevor ich mit der Umfrage fortfahre.
-            <br>
-            <div id="revealedText" style="display: none;">
-              <!-- This text will be revealed after clicking the simulateButton -->
-              <p>This text is revealed after clicking the button.</p>
-          </div>
-            <button id="simulateButton" type="button" onclick="simulateExperiment()">Bestätigen</button>
-
-            <br>
-            
-            <button id="showPriceButton" type="button" onclick="showAssignedPrice()" style="display: none;">Show Assigned Price</button>
-            <button id="continueButton" type="button" onclick="continueToSurvey()" style="display: none;">Continue to Survey</button>
-
-            
-        </form>
-        <div id="googleSignInContainer" style="display: none;">
-          <button class="gsi-material-button" onclick="signInWithGoogle()"> 
-          
-              <div class="gsi-material-button-state"></div>
-              <div class="gsi-material-button-content-wrapper">
-                <div class="gsi-material-button-icon">
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
-                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
-                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
-                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
-                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
-                    <path fill="none" d="M0 0h48v48H0z"></path>
-                  </svg>
-                </div>
-                <span class="gsi-material-button-contents">Sign in with Google to continue</span>
-                <span style="display: none;">Sign in with Google</span>
-              </div>
-            </button>
-      
-          
-          </div>
-        </div>
-        </div>
-        </div>
-    </div>
-    </div>
+<div class="slider-container">
+  <input type="range" min="0" max="5" value="0" step="0.5" id="customRange">
+  <output for="customRange">0</output>
 </div>
 
-    <script>
-        let assignedPrice;
-        let experimentConducted = false;
-
-        function simulateExperiment() {
-        // Check if the experiment has already been conducted
-        if (experimentConducted) {
-            alert("Experiment has already been conducted. You cannot redo it.");
-            return;
-        }
-
-        // Get the selected WTA value
-        const selectedWTA = parseFloat(document.getElementById("wta").value);
-
-        // Simulate the random assignment of a price
-        assignedPrice = Math.random() * 5; // Random number between 0 and 5
-
-        // Compare the random price with the selected WTA
-        if (assignedPrice > selectedWTA) {
-            // Display the Google Sign-In container
-            // Show the text for prices above WTA
-            document.getElementById("continueButton").style.display = "none";
-            document.getElementById("weiterButton").style.display = "none";
-        } else {
-            // Show the Weiter button for prices below or equal to WTA
-            document.getElementById("weiterButton").style.display = "block";
-            document.getElementById("showPriceButton").style.display = "none";
-            document.getElementById("continueButton").style.display = "none";
-            // Display additional text
-            document.getElementById("additionalText").innerText = "";
-            // Hide the Google Sign-In container
-        }
-
-          // Set the flag to true after the experiment is conducted
-          experimentConducted = true;
-          document.getElementById("simulateButton").disabled = true;
-    }
-
-        function showAssignedPrice() {
-            if (assignedPrice === undefined) {
-                alert(`Please simulate the experiment first.`);
-            } else {
-                alert(`Assigned Price: ${assignedPrice.toFixed(2)} EUR`);
-            }
-        }
-
-        function continueToSurvey() {
-            // Redirect to the survey page (replace "survey.html" with the actual page URL)
-            window.location.href = "survey_preferences.html";
-        }
-    </script>
-
-
 <script>
-  function onSignIn(googleUser) {
-    // Get the user's profile information
-    var profile = googleUser.getBasicProfile();
-    
-    console.log('ID: ' + profile.getId());
-    console.log('Name: ' + profile.getName());
-    console.log('Email: ' + profile.getEmail());
+  const rangeInput = document.getElementById('customRange');
+  const output = document.querySelector('output');
 
-    // Redirect to another page
-    window.location.href = '/survey_preferences.html/';  // Replace with your desired URL
-  }
+  rangeInput.addEventListener('input', function () {
+    output.textContent = this.value;
+    const percentage = (this.value - this.min) / (this.max - this.min) * 100;
+    this.style.setProperty('--value', `${percentage}%`);
+  });
 </script>
 
-
-
-
-<div class="footer-container"></div>
 </body>
 </html>

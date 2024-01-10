@@ -35,7 +35,10 @@
 
 
 /* ################################################ */
-/* Cookie Banner overlay */.dialog-overlay {
+/* Cookie Banner overlay */
+
+
+.dialog-overlay {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,8 +124,67 @@ dialog::backdrop {
 
 
 
-/* ################################################ */
+/* ##############Slider for WTA ################################## */
+/* Style for the slider container */
 
+.slider-container {
+  width: 160%; /* Adjust the width as needed */
+  margin: 10;
+  position: relative;
+}
+
+/* Style for the slider input */
+input[type="range"] {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  position: relative;
+  margin: 0 auto 20px 160px;
+}
+
+/* Style for the slider labels */
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  top: 30px; /* Adjust the top position as needed */
+}
+
+/* Style for the range slider */
+input[type="range"] {
+  width: 100%;
+}
+
+/* Style for the slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  cursor: pointer;
+}
+
+/* Style for the slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 5px;
+  background: #ddd;
+  border-radius: 5px;
+}
+
+/* Style for the slider fill (up to the thumb) */
+input[type="range"]::-webkit-slider-thumb {
+  background: #3498db;
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-top: -7.5px; /* Adjusted to center the thumb */
+}
+
+
+
+
+/* ################################################ */
 
 .menu-index {
   color: rgb(255, 255, 255) !important;
