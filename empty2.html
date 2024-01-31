@@ -4,15 +4,13 @@
 <!-------------------------------------------------------------------------------------------->
     <!--Start Cookie Banner-->
 
-<body>
-
 
 
 <!-- Modal -->
 <dialog>
   <div class="cookie-banner" id="cookieBanner">
     <div id="cookieContent">
-      <h2>Cookie Einstellungen</h2>
+      <h2 id="bannerTitle">Cookie Einstellungen</h2>
       <br>
       <p class="cookie-text">
         Wir verwenden Cookies und ähnliche Technologien, um Ihr Surferlebnis zu verbessern, den Website-Verkehr zu analysieren und personalisierte Inhalte anzubieten.
@@ -21,14 +19,14 @@
         <br>
         Sie können Ihre <a href="javascript:void(0);" class="cookie-link" onclick="showManageCookies()">Cookie-Einstellungen hier verwalten</a>.
       </p>
-      <div class="cookie-buttons">
+      <div class="cookie-buttons" id="cookieButtons">
         <button id="accept-all-cookies" class="cookie-button accept-button" onclick="acceptAllCookies()">Alle Cookies akzeptieren</button>
         <button id="decline-all-cookies" class="cookie-button decline-button" onclick="declineAllCookies()">Ablehnen</button>
       </div>
     </div>
 
     <div id="manageCookiesContent" style="display: none;">
-      <h2>Cookie-Einstellungen verwalten</h2>
+      <h2 id="manageTitle">Cookie-Einstellungen verwalten</h2>
       <p>Wählen Sie aus, welche Arten von Cookies Sie zulassen möchten:</p>
       <label class="switch">
         <input type="checkbox" id="nonNecessarySwitch">
@@ -40,26 +38,125 @@
   </div>
 </dialog>
 
+<style>
+  .cookie-banner {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #ccc; /* Default color is grey */
+  }
+
+  .cookie-button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+
+  .cookie-banner.design1 .accept-button {
+    background-color: #4CAF50;
+  }
+
+  .cookie-banner.design1 .decline-button {
+    background-color: #F44336;
+  }
+  
+  .cookie-banner .accept-button {
+    background-color: grey; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .cookie-banner .decline-button {
+    background-color: grey; /* Red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+
+  #cookieButtons button {
+    margin: 0 5px;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+</style>
+
 <script>
   const dialogElement = document.querySelector("dialog");
 
-  // Show the dialog when the page loads
   dialogElement.showModal();
 
   function acceptAllCookies() {
-    // Handle logic for accepting all cookies
     console.log("All cookies accepted");
     dialogElement.close();
   }
 
+  function declineAllCookies() {
+    console.log("All cookies declined");
+    dialogElement.close();
+  }
+
   function showManageCookies() {
-    // Hide the current content and show the manage cookies content
     document.getElementById("cookieContent").style.display = "none";
     document.getElementById("manageCookiesContent").style.display = "block";
   }
 
   function applyCookieSettings() {
-    // Handle logic for applying cookie settings
     const nonNecessarySwitch = document.getElementById("nonNecessarySwitch");
 
     if (nonNecessarySwitch.checked) {
@@ -68,33 +165,35 @@
       console.log("Non-necessary cookies disabled");
     }
 
-    // Show the original content and hide the manage cookies content
     document.getElementById("cookieContent").style.display = "block";
     document.getElementById("manageCookiesContent").style.display = "none";
   }
 
+  function setRandomDesign() {
+    const designs = ["design1", "design2", "design3"];
+    const randomDesign = designs[Math.floor(Math.random() * designs.length)];
 
-  function declineAllCookies() {
-    // Handle logic for declining all cookies
-    console.log("All cookies declined");
-    dialogElement.close();
-  }
-
-  // Function to randomly change the appearance of the cookie banner
-  function randomizeCookieBanner() {
     const cookieBanner = document.getElementById("cookieBanner");
-    const isGreyDesign = Math.random() < 0.5; // 50% chance of grey design
+    const bannerTitle = document.getElementById("bannerTitle");
+    const manageTitle = document.getElementById("manageTitle");
 
-    if (isGreyDesign) {
-      cookieBanner.classList.add("grey-design");
+    cookieBanner.classList.remove(...designs);
+    cookieBanner.classList.add(randomDesign);
+
+    if (randomDesign === "design1") {
+    } else if (randomDesign === "design2") {
+      document.getElementById("decline-all-cookies").style.display = "none";
+    } else {
+      document.getElementById("decline-all-cookies").style.display = "inline-block";
     }
   }
 
-  // Call the function to randomize the cookie banner appearance
-  randomizeCookieBanner();
+  // Call the function to set a random design of the cookie banner
+  setRandomDesign();
 </script>
 
 </body>
+
 
 
 
