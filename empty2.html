@@ -1,80 +1,171 @@
-<!-- master.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    .slider-container {
-      width: 50%; /* Adjust the width as needed */
-      margin: auto;
-      position: relative;
-    }
+<!doctype html>
+<html>
 
-    input[type="range"] {
-      -webkit-appearance: none;
-      width: 100%;
-      height: 10px;
-      background: #ddd; /* Background color of the slider track */
-      border-radius: 5px;
-      outline: none;
-      margin: 0;
-    }
+<!-------------------------------------------------------------------------------------------->
+    <!--Start Cookie Banner-->
 
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 20px; /* Width of the slider thumb */
-      height: 20px; /* Height of the slider thumb */
-      background: #3498db; /* Background color of the slider thumb */
-      border-radius: 50%;
-      cursor: pointer;
-      position: relative;
-      z-index: 2;
-    }
-
-    input[type="range"]::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 10px;
-      background: #ddd; /* Background color of the slider track */
-      border-radius: 5px;
-    }
-
-    input[type="range"]::-webkit-slider-runnable-track::before {
-      content: '';
-      width: 0%;
-      height: 10px;
-      background: #3498db; /* Background color of the selected portion */
-      border-radius: 5px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-    }
-
-    output {
-      display: block;
-      text-align: center;
-      margin-top: 10px;
-    }
-  </style>
-</head>
 <body>
 
-<div class="slider-container">
-  <input type="range" min="0" max="5" value="0" step="0.5" id="customRange">
-  <output for="customRange">0</output>
-</div>
+
+
+<!-- Modal -->
+<dialog>
+  <div class="cookie-banner" id="cookieBanner">
+    <div id="cookieContent">
+      <h2>Cookie Einstellungen</h2>
+      <br>
+      <p class="cookie-text">
+        Wir verwenden Cookies und ähnliche Technologien, um Ihr Surferlebnis zu verbessern, den Website-Verkehr zu analysieren und personalisierte Inhalte anzubieten.
+        Für weitere Informationen lesen Sie bitte unsere <a href="/privacy.html" class="cookie-link" target="_blank">Datenschutzrichtlinie</a>.
+        <br>
+        <br>
+        Sie können Ihre <a href="javascript:void(0);" class="cookie-link" onclick="showManageCookies()">Cookie-Einstellungen hier verwalten</a>.
+      </p>
+      <div class="cookie-buttons">
+        <button id="accept-all-cookies" class="cookie-button accept-button" onclick="acceptAllCookies()">Alle Cookies akzeptieren</button>
+        <button id="decline-all-cookies" class="cookie-button decline-button" onclick="declineAllCookies()">Ablehnen</button>
+      </div>
+    </div>
+
+    <div id="manageCookiesContent" style="display: none;">
+      <h2>Cookie-Einstellungen verwalten</h2>
+      <p>Wählen Sie aus, welche Arten von Cookies Sie zulassen möchten:</p>
+      <label class="switch">
+        <input type="checkbox" id="nonNecessarySwitch">
+        <span class="slider round"></span>
+      </label>
+      <label for="nonNecessarySwitch">Nicht notwendige Cookies</label>
+      <button class="cookie-button" onclick="applyCookieSettings()">Einstellungen anwenden</button>
+    </div>
+  </div>
+</dialog>
 
 <script>
-  const rangeInput = document.getElementById('customRange');
-  const output = document.querySelector('output');
+  const dialogElement = document.querySelector("dialog");
 
-  rangeInput.addEventListener('input', function () {
-    output.textContent = this.value;
-    const percentage = (this.value - this.min) / (this.max - this.min) * 100;
-    this.style.setProperty('--value', `${percentage}%`);
-  });
+  // Show the dialog when the page loads
+  dialogElement.showModal();
+
+  function acceptAllCookies() {
+    // Handle logic for accepting all cookies
+    console.log("All cookies accepted");
+    dialogElement.close();
+  }
+
+  function showManageCookies() {
+    // Hide the current content and show the manage cookies content
+    document.getElementById("cookieContent").style.display = "none";
+    document.getElementById("manageCookiesContent").style.display = "block";
+  }
+
+  function applyCookieSettings() {
+    // Handle logic for applying cookie settings
+    const nonNecessarySwitch = document.getElementById("nonNecessarySwitch");
+
+    if (nonNecessarySwitch.checked) {
+      console.log("Non-necessary cookies enabled");
+    } else {
+      console.log("Non-necessary cookies disabled");
+    }
+
+    // Show the original content and hide the manage cookies content
+    document.getElementById("cookieContent").style.display = "block";
+    document.getElementById("manageCookiesContent").style.display = "none";
+  }
+
+
+  function declineAllCookies() {
+    // Handle logic for declining all cookies
+    console.log("All cookies declined");
+    dialogElement.close();
+  }
+
+  // Function to randomly change the appearance of the cookie banner
+  function randomizeCookieBanner() {
+    const cookieBanner = document.getElementById("cookieBanner");
+    const isGreyDesign = Math.random() < 0.5; // 50% chance of grey design
+
+    if (isGreyDesign) {
+      cookieBanner.classList.add("grey-design");
+    }
+  }
+
+  // Call the function to randomize the cookie banner appearance
+  randomizeCookieBanner();
 </script>
 
 </body>
+
+
+
+<!--End Cookie Banner-->
+    <!-------------------------------------------------------------------------------------------->
+
+
+
+<head>
+  <title>Value Study</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/footer.js"></script>
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+
+
+</head>
+
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <!-------------------------------------------------------------------------------------------->
+    <!--Start Header-->
+    <div class="banner" style="background: url('img/example-scene.svg') no-repeat center; background-size: contain; height: 300px;"></div>
+    <div class="banner" style="color: black;  background-color: rgb(255, 225, 0); max-width: 900px; margin: 0 auto;">
+      <div class="banner-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+          <h2 class="add-top-margin-small">Vielen Dank für Ihre Teilnahme an unserer Studie!</h2>
+          <br>
+          <p class="text">
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
+            augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+            condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
+            vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae
+            sapien ut libero venenatis faucibus. Nullam quis ante.
+          
+          
+            </p>
+          
+          
+
+            
+          </div>
+        </div>
+      <a href="consent.html" class="small-button">Studie beginnen</a>
+      </div>
+    </div>
+  </div>
+
+
+    <!--End Header-->
+    <!-------------------------------------------------------------------------------------------->
+
+
+
+      </div>
+    </div>
+    <div class="footer-container"></div>
+  </div>
+</body>
+
+
+
 </html>

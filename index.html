@@ -7,58 +7,93 @@
 <body>
 
 
-  <!-- Modal -->
-  <dialog>
-    <div class="cookie-banner" id="cookieBanner">
+<!-- Modal -->
+<dialog>
+  <div class="cookie-banner" id="cookieBanner">
+    <div id="cookieContent">
       <h2>Cookie Einstellungen</h2>
       <br>
       <p class="cookie-text">
         Wir verwenden Cookies und ähnliche Technologien, um Ihr Surferlebnis zu verbessern, den Website-Verkehr zu analysieren und personalisierte Inhalte anzubieten.
         Für weitere Informationen lesen Sie bitte unsere <a href="/privacy.html" class="cookie-link" target="_blank">Datenschutzrichtlinie</a>.
-      <br>
-      <br>
+        <br>
+        <br>
+        Sie können Ihre <a href="javascript:void(0);" class="cookie-link" onclick="showManageCookies()">Cookie-Einstellungen hier verwalten</a>.
       </p>
       <div class="cookie-buttons">
-        <button id="accept-cookie" class="cookie-button accept-button" onclick="acceptCookies()">Alle Cookies akzeptieren</button>
-        <button id="decline-cookie" class="cookie-button decline-button" onclick="declineCookies()">Ablehnen</button>
+        <button id="accept-all-cookies" class="cookie-button accept-button" onclick="acceptAllCookies()">Alle Cookies akzeptieren</button>
+        <button id="decline-all-cookies" class="cookie-button decline-button" onclick="declineAllCookies()">Ablehnen</button>
       </div>
     </div>
-  </dialog>
-  
-  <script>
-    const dialogElement = document.querySelector("dialog");
 
-    // Show the dialog when the page loads
-    dialogElement.showModal();
+    <div id="manageCookiesContent" style="display: none;">
+      <h2>Cookie-Einstellungen verwalten</h2>
+      <p>Wählen Sie aus, welche Arten von Cookies Sie zulassen möchten:</p>
+      <label class="switch">
+        <input type="checkbox" id="nonNecessarySwitch">
+        <span class="slider round"></span>
+      </label>
+      <label for="nonNecessarySwitch">Nicht notwendige Cookies</label>
+      <button class="cookie-button" onclick="applyCookieSettings()">Einstellungen anwenden</button>
+    </div>
+  </div>
+</dialog>
 
-    function acceptCookies() {
-      // Handle logic for accepting cookies
-      console.log("Cookies accepted");
-      dialogElement.close();
+<script>
+  const dialogElement = document.querySelector("dialog");
+
+  // Show the dialog when the page loads
+  dialogElement.showModal();
+
+  function acceptAllCookies() {
+    // Handle logic for accepting all cookies
+    console.log("All cookies accepted");
+    dialogElement.close();
+  }
+
+  function showManageCookies() {
+    // Hide the current content and show the manage cookies content
+    document.getElementById("cookieContent").style.display = "none";
+    document.getElementById("manageCookiesContent").style.display = "block";
+  }
+
+  function applyCookieSettings() {
+    // Handle logic for applying cookie settings
+    const nonNecessarySwitch = document.getElementById("nonNecessarySwitch");
+
+    if (nonNecessarySwitch.checked) {
+      console.log("Non-necessary cookies enabled");
+    } else {
+      console.log("Non-necessary cookies disabled");
     }
 
-    function declineCookies() {
-      // Handle logic for declining cookies
-      console.log("Cookies declined");
-      dialogElement.close();
+    // Show the original content and hide the manage cookies content
+    document.getElementById("cookieContent").style.display = "block";
+    document.getElementById("manageCookiesContent").style.display = "none";
+  }
+
+
+  function declineAllCookies() {
+    // Handle logic for declining all cookies
+    console.log("All cookies declined");
+    dialogElement.close();
+  }
+
+  // Function to randomly change the appearance of the cookie banner
+  function randomizeCookieBanner() {
+    const cookieBanner = document.getElementById("cookieBanner");
+    const isGreyDesign = Math.random() < 0.5; // 50% chance of grey design
+
+    if (isGreyDesign) {
+      cookieBanner.classList.add("grey-design");
     }
+  }
 
-    // Function to randomly change the appearance of the cookie banner
-    function randomizeCookieBanner() {
-      const cookieBanner = document.getElementById("cookieBanner");
-      const isGreyDesign = Math.random() < 0.5; // 50% chance of grey design
-
-      if (isGreyDesign) {
-        cookieBanner.classList.add("grey-design");
-      }
-    }
-
-    // Call the function to randomize the cookie banner appearance
-    randomizeCookieBanner();
-  </script>
+  // Call the function to randomize the cookie banner appearance
+  randomizeCookieBanner();
+</script>
 
 </body>
-
 
 
 
