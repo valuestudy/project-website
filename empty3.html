@@ -1,232 +1,289 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+
+<!-------------------------------------------------------------------------------------------->
+    <!--Start Cookie Banner-->
+
+<body>
+<!-- Modal -->
+<dialog>
+  <div class="cookie-banner" id="cookieBanner">
+    <div id="cookieContent">
+      <h2 id="bannerTitle">Cookie Einstellungen</h2>
+      <!-- Text for design1-3 with the baseline text-->
+      <p class="cookie-text">
+        Um Ihr Nutzungserlebnis zu verbessern, verwendet diese Website Cookies. Dabei werden unterschiedliche Arten von Cookies verwendet, um Ihr Erlebnis auf dieser Website zu verbessern. Dazu gehören solche Cookies, die für den Betrieb dieser Website technisch erforderlich sind. Zudem werden Cookies verwendet, die für statistische Zwecke genutzt werden, Ihren Komfort auf dieser Website erhöhen oder zur Erstellung zielgerichteter Werbeangebote genutzt werden. 
+        Weitere Informationen zu diesen Technologien können Sie unserer <a href="/privacy.html" class="cookie-link" target="_blank">Datenschutzrichtlinie</a> entnehmen. 
+        Sie können Ihre Cookie Einstellungen <a href="javascript:void(0);" class="cookie-link" onclick="showManageCookies()">hier</a> verwalten.
+      <br>
+      <br>
+      </p>
+
+      <!-- Text for design4 which has the reject button within the text  -->
+      <p class="cookie-text design4-cookie-text" style="display: none;">
+        Um Ihr Nutzungserlebnis zu verbessern, verwendet diese Website Cookies. Dabei werden unterschiedliche Arten von Cookies verwendet, um Ihr Erlebnis auf dieser Website zu verbessern. Dazu gehören solche Cookies, die für den Betrieb dieser Website technisch erforderlich sind. Zudem werden Cookies verwendet, die für statistische Zwecke genutzt werden, Ihren Komfort auf dieser Website erhöhen oder zur Erstellung zielgerichteter Werbeangebote genutzt werden. 
+        Weitere Informationen zu diesen Technologien können Sie unserer <a href="/privacy.html" class="cookie-link" target="_blank">Datenschutzrichtlinie</a> entnehmen. 
+        Die Platzierung nicht essenzieller Cookies können Sie <a href="javascript:void(0);" id="decline-all-cookies-design4" class="cookie-link" onclick="declineAllCookies()">ablehnen</a>.
+        Sie können Ihre Cookie Einstellungen <a href="javascript:void(0);" class="cookie-link" onclick="showManageCookies()">hier</a> verwalten.
+      <br>
+      </p>
+
+      <div class="cookie-buttons" id="cookieButtons">
+        <button id="accept-all-cookies" class="cookie-button accept-button" onclick="acceptAllCookies()">Alle Cookies akzeptieren</button>
+        <button id="decline-all-cookies" class="cookie-button decline-button" onclick="declineAllCookies()">Nicht-essenzielle Cookies ablehnen</button>
+      </div>
+    </div>
+
+    <div id="manageCookiesContent" style="display: none;">
+      <h2 id="manageTitle">Cookie-Einstellungen verwalten</h2>
+      <p>Wählen Sie aus, welche Arten von Cookies Sie zulassen möchten:</p>
+      <label class="switch">
+        <input type="checkbox" id="nonNecessarySwitch">
+        <span class="slider round"></span>
+      </label>
+      <label for="nonNecessarySwitch">Nicht notwendige Cookies</label>
+      <button class="cookie-button" onclick="applyCookieSettings()">Einstellungen anwenden</button>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  .cookie-banner {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #ccc; /* Default color is grey */
+  }
+
+  .cookie-button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
 
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Value Study</title>
+  .cookie-banner.design1 .accept-button {
+    background-color: #4CAF50;
+  }
+
+  .cookie-banner.design1 .decline-button {
+    background-color: #F44336;
+  }
   
-    <!-- Add Firebase SDK Scripts with defer attribute -->
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-database-compat.js" defer></script>
-  
-    <!-- Firebase Configuration Script -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const firebaseConfig = {
-          apiKey: "AIzaSyDF1e_FBAv4P1krAwTKVyP3F5g4knp4Hew",
-          authDomain: "valuestudy.firebaseapp.com",
-          databaseURL: "https://valuestudy-default-rtdb.europe-west1.firebasedatabase.app",
-          projectId: "valuestudy",
-          storageBucket: "valuestudy.appspot.com",
-          messagingSenderId: "1092513324979",
-          appId: "1:1092513324979:web:b6823acdd1d63aca5935c6"
-        };
-  
-        // Initialize Firebase after the DOM has been fully loaded
-        const firebaseApp = firebase.initializeApp(firebaseConfig);
-  
-        // Get a reference to the database
-        const database = firebaseApp.database();
-        const surveyRef = database.ref('surveyResponses');
-  
-        // Function to send survey responses to Firebase
-        function sendSurveyResponse(data) {
-          surveyRef.push(data)
-            .then(() => {
-              console.log('Survey response sent to Firebase successfully!');
-              // Optionally, reset the form or perform other actions, e.g. redirect to success.html
-              window.location.href = 'success.html';
-            })
-            .catch(error => {
-              console.error('Error sending survey response to Firebase:', error);
-            });
-        }
-  
-        // Function to handle form submission
-        function handleFormSubmission(event) {
-          event.preventDefault();
-  
-          // Get form data
-          const surveyForm = document.getElementById('surveyForm');
-          const formData = new FormData(surveyForm);
-          const data = {};
-          formData.forEach((value, key) => {
-            data[key] = value;
-          });
-  
-          // Call the function to send survey response to Firebase
-          sendSurveyResponse(data);
-        }
-  
-        // Continue with your code...
-        const surveyForm = document.getElementById('surveyForm');
-  
-        surveyForm.addEventListener('submit', handleFormSubmission);
-      });
-    </script>
-  </head>
+  .cookie-banner .accept-button {
+    background-color: grey; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .cookie-banner .decline-button {
+    background-color: grey; /* Red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+
+  #cookieButtons button {
+    margin: 0 5px;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+</style>
+
+<script>
+  const dialogElement = document.querySelector("dialog");
+
+  dialogElement.showModal();
+
+  function acceptAllCookies() {
+    console.log("All cookies accepted");
+    dialogElement.close();
+  }
+
+  function declineAllCookies() {
+    console.log("All cookies declined");
+    dialogElement.close();
+  }
+
+  function showManageCookies() {
+    document.getElementById("cookieContent").style.display = "none";
+    document.getElementById("manageCookiesContent").style.display = "block";
+  }
+
+  function applyCookieSettings() {
+    const nonNecessarySwitch = document.getElementById("nonNecessarySwitch");
+
+    if (nonNecessarySwitch.checked) {
+      console.log("Non-necessary cookies enabled");
+    } else {
+      console.log("Non-necessary cookies disabled");
+    }
+
+    document.getElementById("cookieContent").style.display = "block";
+    document.getElementById("manageCookiesContent").style.display = "none";
+  }
+
+  function setRandomDesign() {
+    const designs = ["design1", "design2", "design3", "design4"];
+    const randomDesign = designs[Math.floor(Math.random() * designs.length)];
+
+    const cookieBanner = document.getElementById("cookieBanner");
+
+    // Remove all design classes
+    cookieBanner.classList.remove(...designs);
+
+    // Add class for the randomly selected design
+    cookieBanner.classList.add(randomDesign);
+
+    // Hide all cookie text elements
+    const cookieTexts = document.querySelectorAll(".cookie-text");
+    cookieTexts.forEach(text => text.style.display = "none");
+
+    // Show text element for design4 if selected
+    if (randomDesign === "design4") {
+      const design4Text = document.querySelector(".design4-cookie-text");
+      design4Text.style.display = "block";
+      // Hide the .cookie-text for design4
+      const baselineText = document.querySelector(".cookie-text");
+      baselineText.style.display = "none";
+      // Hide the decline-all-cookies button for design4
+      document.getElementById("decline-all-cookies").style.display = "none";
+    } else {
+      // Show the .cookie-text for designs 1-3
+      const baselineText = document.querySelector(".cookie-text");
+      baselineText.style.display = "block";
+      // Show/hide the decline-all-cookies button for designs 1-3
+      if (randomDesign === "design2") {
+        document.getElementById("decline-all-cookies").style.display = "none";
+      } else {
+        document.getElementById("decline-all-cookies").style.display = "inline-block";
+      }
+    }
+}
   
 
-  <title> Value Study </title>
+  // Call the function to set a random design of the cookie banner
+  setRandomDesign();
+</script>
+
+</body>
+
+
+<!--End Cookie Banner-->
+    <!-------------------------------------------------------------------------------------------->
+
+
+
+<head>
+  <title>Value Study</title>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/widgets.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/footer.js"></script>
-  <script src="js/widgets.js"></script>
-  <script src="js/util.js"></script>
-  <script src="js/custom.js"></script>
-  <style>
-    .menu-widget {
-      color: rgb(255, 255, 255) !important;
-      opacity: 1 !important;
-      font-weight: 700 !important;
-    }
-    
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-            
-  </style>
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+
+
 </head>
 
 <body>
   <div class="menu-container"></div>
   <div class="content-container">
-    <div class="content">
-      <div class="content-table flex-column">
+    <!-------------------------------------------------------------------------------------------->
+    <!--Start Header-->
+    <div class="banner" style="background: url('img/example-scene.svg') no-repeat center; background-size: contain; height: 300px;"></div>
+    <div class="banner" style="color: black;  background-color: rgb(255, 225, 0); max-width: 900px; margin: 0 auto;">
+      <div class="banner-table flex-column">
         <div class="flex-row">
-            <div class="flex-item flex-column-survey">
-                <h2 id="Survey">Datenschutz-Präferenzen</h2>
-                <hr>
-                <p class="text">
-                Bitte beantworten Sie folgende Fragen zu Ihren Ansichten hinsichtlich Ihrer online Privatsphäre: 
-                <br>
-                </p>
-                <br>
-            <form id="likertForm">
-                <div class="custom-radio-group-survey add-top-margin">
-                <table>
-                    <tr>
-                        <th>Fragen</th>
-                        <th>Stimme voll zu</th>
-                        <th>Stimme zu</th>
-                        <th>Neutral</th>
-                        <th>Stimme nicht zu</th>
-                        <th>Stimme gar nicht zu</th>
-                    </tr>
-                    <tr>
-                        <td>Es ist wichtig für mich, meine Privatsphäre im Internet zu schützen.</td>
-                        <td><input type="radio" name="question-1" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-1" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-1" value="Neutral"></td>
-                        <td><input type="radio" name="question-1" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-1" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Wenn ich Websites besuche, versuche ich normalerweise, so wenig Daten wie möglich preiszugeben.</td>
-                        <td><input type="radio" name="question-2" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-2" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-2" value="Neutral"></td>
-                        <td><input type="radio" name="question-2" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-2" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Ich schätze personalisierte Werbung, die auf meinen vorherigen Online-Aktivitäten zugeschnitten sind.</td>
-                        <td><input type="radio" name="question-3" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-3" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-3" value="Neutral"></td>
-                        <td><input type="radio" name="question-3" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-3" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Im Allgemeinen, wie besorgt sind Sie um Ihre Privatsphäre bei der Nutzung des Internets?</td>
-                        <td><input type="radio" name="question-4" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-4" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-4" value="Neutral"></td>
-                        <td><input type="radio" name="question-4" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-4" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Sind Sie besorgt darüber, dass Online-Organisationen nicht sind, wer sie vorgeben zu sein?</td>
-                        <td><input type="radio" name="question-5" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-5" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-5" value="Neutral"></td>
-                        <td><input type="radio" name="question-5" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-5" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Sind Sie besorgt, dass Sie bei der Anmeldung oder bei Online-Einkäufen zu viele persönliche Informationen angeben müssen?</td>
-                        <td><input type="radio" name="question-6" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-6" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-6" value="Neutral"></td>
-                        <td><input type="radio" name="question-6" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-6" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Sind Sie besorgt über Identitätsdiebstahl im Internet?</td>
-                        <td><input type="radio" name="question-7" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-7" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-7" value="Neutral"></td>
-                        <td><input type="radio" name="question-7" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-7" value="Stimme voll zu"></td>
-                    </tr>
-                </table>
-      
-
-            <button type="button" onclick="validateAndSubmit()">Weiter</button>
-            </div></form>
+          <div class="flex-item flex-column">
+          <h2 class="add-top-margin-small">Vielen Dank für Ihre Teilnahme an unserer Studie!</h2>
+          <br>
+          <p class="text">
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
+            augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+            condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
+            vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae
+            sapien ut libero venenatis faucibus. Nullam quis ante.
           
-              
+          
+            </p>
+          
+          
 
-            </div>
-            <script>
-                function validateAndSubmit() {
-            // Get all radio groups
-            const radioGroups = document.querySelectorAll('.custom-radio-group-survey');
-      
-            // Check if all radio groups have a selected option
-            const isValid = Array.from(radioGroups).every(group => {
-              const selectedOption = group.querySelector('input[type="radio"]:checked');
-              return selectedOption !== null;
-            });
-      
-            // If all questions are answered, submit the form
-            if (isValid) {
-              handleFormSubmission();
-            } else {
-              alert('Bitte beantworten Sie alle Fragen.');
-            }
-            }
-        
-            // Rest of your existing JavaScript code...
-        
-            // Function to handle form submission
-            function handleFormSubmission() {
-                window.location.href = 'success.html';
-            }
-            </script>
+            
+          </div>
+        </div>
+      <a href="consent.html" class="small-button">Studie beginnen</a>
+      </div>
+    </div>
+  </div>
+
+
+    <!--End Header-->
+    <!-------------------------------------------------------------------------------------------->
+
 
 
       </div>
@@ -234,5 +291,7 @@
     <div class="footer-container"></div>
   </div>
 </body>
+
+
 
 </html>
