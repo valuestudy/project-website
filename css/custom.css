@@ -167,6 +167,11 @@ dialog::backdrop {
   margin: 10px 0;
   font-size: 14px; /* Adjust the font size to your preference */
 }
+.settings-text {
+  text-align: justify; /* Sets the text alignment to justified */
+  margin: 10px 0;
+  font-size: 13px; /* Adjust the font size to your preference */
+}
 
 .cookie-link {
   color: #3e3e3e;

@@ -21,7 +21,11 @@
 
       <!-- Text for design4 which has the reject button within the text  -->
       <p class="cookie-text design4-cookie-text" style="display: none;">
-        Text for design 4
+        Um Ihr Nutzungserlebnis zu verbessern, verwendet diese Website Cookies. Dabei werden unterschiedliche Arten von Cookies verwendet, um Ihr Erlebnis auf dieser Website zu verbessern. Dazu gehören solche Cookies, die für den Betrieb dieser Website technisch erforderlich sind. Zudem werden Cookies verwendet, die für statistische Zwecke genutzt werden, Ihren Komfort auf dieser Website erhöhen oder zur Erstellung zielgerichteter Werbeangebote genutzt werden. 
+        Weitere Informationen zu diesen Technologien können Sie unserer <a href="/privacy.html" class="cookie-link" target="_blank">Datenschutzrichtlinie</a> entnehmen. 
+        Die Platzierung nicht essenzieller Cookies können Sie <a href="javascript:void(0);" id="decline-all-cookies-design4" class="cookie-link" onclick="declineAllCookies()">ablehnen</a>.
+        Sie können Ihre Cookie Einstellungen <a href="javascript:void(0);" class="cookie-link" onclick="showManageCookies()">hier</a> verwalten.
+      <br>
       </p>
 
       <div class="cookie-buttons" id="cookieButtons">
@@ -31,13 +35,51 @@
     </div>
 
     <div id="manageCookiesContent" style="display: none;">
-      <h2 id="manageTitle">Cookie-Einstellungen verwalten</h2>
-      <p>Wählen Sie aus, welche Arten von Cookies Sie zulassen möchten:</p>
+      <h2 id="manageTitle">Cookie-Einstellungen verwalten</h2> 
+      <p class="settings-text">Wählen Sie aus, welchen Arten von Cookies Sie zustimmen: <br> <br>
       <label class="switch">
-        <input type="checkbox" id="nonNecessarySwitch">
+        <input type="checkbox" id="nonNecessarySwitch" checked disabled>
         <span class="slider round"></span>
       </label>
-      <label for="nonNecessarySwitch">Nicht notwendige Cookies</label>
+      
+      <b><label for="nonNecessarySwitch">Funktionale Cookies</label></b><br>
+      Funktionale und technisch erforderliche Cookies helfen uns dabei, diese Webseite für ihre Besucher nutzbar zu machen, indem sie Grundfunktionen wie Seitennavigation oder die Erfassung angegebener Daten ermöglichen. Sie sorgen dafür, dass während Ihres Besuches getätigte Aktionen auf dieser Website korrekt erfasst werden können. 
+        Diese Dienste sind standardmäßig aktiviert und können nicht deaktiviert werden. 
+      
+      <br> <br>
+      <label class="switch">
+        <input type="checkbox" id="AnalyticSwitch">
+        <span class="slider round"></span>
+      </label>
+      <b><label for="AnalyticSwitch">Analytische Cookies</label></b><br>
+
+      Um unsere Dienstleistungen und diese Website zu verbessern, sammeln wir Daten in anonymisierter Form für statistische Zwecke. Mit Hilfe dieser Cookies ist es uns z.B. möglich, die Frequentierung und den Einfluss bestimmter Bereiche unserer Website zu ermitteln und den Inhalt zu optimieren.
+
+        <br> <br>
+        <label class="switch">
+          <input type="checkbox" id="ComfortSwitch">
+          <span class="slider round"></span>
+        </label>
+        <b><label for="ComfortSwitch">Komfort Cookies</label></b><br>
+  
+        Diese Cookies werden verwendet, um das Nutzungserlebnis auf Ihrer Website zu verbessern. Sie ermöglichen es Ihnen beispielsweise, bei Ihrem nächsten Besuch schnell auf frühere Fortschritte zuzugreifen, und wir verwenden sie, um Ihre Wünsche bei der Nutzung besser zu erfassen.
+  
+          <br> <br>
+        <label class="switch">
+          <input type="checkbox" id="MarketingSwitch">
+          <span class="slider round"></span>
+        </label>
+        <b><label for="MarketingSwitch">Marketing Cookies</label></b><br>
+  
+        Diese Cookies werden verwendet, um Besucher auf verschiedenen Websites zu verfolgen. Ziel ist es, Anzeigen zu schalten, die für den einzelnen Nutzer relevant und ansprechend sind und damit für Verlage und dritte Werbetreibende wertvoller sind.
+
+      </p>
+
+
+
+
+      <br>
+      <button class="cookie-button" id="zurueckButton">Zurück</button>
       <button class="cookie-button" onclick="applyCookieSettings()">Einstellungen anwenden</button>
     </div>
   </div>
@@ -90,8 +132,8 @@
   .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 40px;
+    height: 26px;
   }
 
   .slider {
@@ -162,46 +204,81 @@
   }
 
   function applyCookieSettings() {
-    const nonNecessarySwitch = document.getElementById("nonNecessarySwitch");
+    const analyticSwitch = document.getElementById("AnalyticSwitch");
+    const comfortSwitch = document.getElementById("ComfortSwitch");
+    const marketingSwitch = document.getElementById("MarketingSwitch");
 
-    if (nonNecessarySwitch.checked) {
-      console.log("Non-necessary cookies enabled");
+    if (analyticSwitch.checked) {
+        console.log("Analytic cookies enabled");
     } else {
-      console.log("Non-necessary cookies disabled");
+        console.log("Analytic cookies disabled");
     }
 
+    if (comfortSwitch.checked) {
+        console.log("Comfort cookies enabled");
+    } else {
+        console.log("Comfort cookies disabled");
+    }
+
+    if (marketingSwitch.checked) {
+        console.log("Marketing cookies enabled");
+    } else {
+        console.log("Marketing cookies disabled");
+    }
+
+    // Display content and hide manage cookies section
     document.getElementById("cookieContent").style.display = "block";
     document.getElementById("manageCookiesContent").style.display = "none";
+
+    dialogElement.close();
+}
+  // For the Zurück button on the second layer
+  function showCookieContent() {
+      document.getElementById("cookieContent").style.display = "block";
+      document.getElementById("manageCookiesContent").style.display = "none";
   }
+
+  document.getElementById("zurueckButton").addEventListener("click", showCookieContent);
+
+
 
   function setRandomDesign() {
     const designs = ["design1", "design2", "design3", "design4"];
     const randomDesign = designs[Math.floor(Math.random() * designs.length)];
 
     const cookieBanner = document.getElementById("cookieBanner");
-    const bannerTitle = document.getElementById("bannerTitle");
-    const manageTitle = document.getElementById("manageTitle");
 
+    // Remove all design classes
     cookieBanner.classList.remove(...designs);
+
+    // Add class for the randomly selected design
     cookieBanner.classList.add(randomDesign);
 
-    if (randomDesign === "design1") {
-    } else if (randomDesign === "design2") {
-      document.getElementById("decline-all-cookies").style.display = "none";
-    } else {
-      document.getElementById("decline-all-cookies").style.display = "inline-block";
-    }
+    // Hide all cookie text elements
+    const cookieTexts = document.querySelectorAll(".cookie-text");
+    cookieTexts.forEach(text => text.style.display = "none");
 
-    // design4: different text
+    // Show text element for design4 if selected
     if (randomDesign === "design4") {
       const design4Text = document.querySelector(".design4-cookie-text");
       design4Text.style.display = "block";
+      // Hide the .cookie-text for design4
+      const baselineText = document.querySelector(".cookie-text");
+      baselineText.style.display = "none";
+      // Hide the decline-all-cookies button for design4
       document.getElementById("decline-all-cookies").style.display = "none";
     } else {
-      document.getElementById("decline-all-cookies").style.display = "inline-block";
+      // Show the .cookie-text for designs 1-3
+      const baselineText = document.querySelector(".cookie-text");
+      baselineText.style.display = "block";
+      // Show/hide the decline-all-cookies button for designs 1-3
+      if (randomDesign === "design2") {
+        document.getElementById("decline-all-cookies").style.display = "none";
+      } else {
+        document.getElementById("decline-all-cookies").style.display = "inline-block";
+      }
     }
-    }
-
+}
   
 
   // Call the function to set a random design of the cookie banner
