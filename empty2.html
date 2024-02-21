@@ -1,452 +1,364 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Value Study</title>
-
- 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        select {
-            padding: 8px;
-            font-size: 16px;
-        }
-
-        button {
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-right: 10px;
-            margin-bottom: 8px;
-            margin-top: 10px;
-        }
-        
-        form {
-        position: relative;
-        margin: 0 auto 20px 160px;
-      }
-      /* For the design of the Google button */
-
-      
-      .gsi-material-button {
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        -webkit-appearance: none;
-        background-color: WHITE;
-        background-image: none;
-        border: 1px solid #747775;
-        -webkit-border-radius: 20px;
-        border-radius: 20px;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        color: #1f1f1f;
-        cursor: pointer;
-        font-family: 'Roboto', arial, sans-serif;
-        font-size: 14px;
-        height: 40px;
-        letter-spacing: 0.25px;
-        outline: none;
-        overflow: hidden;
-        padding: 0 12px;
-        position: relative;
-        text-align: center;
-        -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
-        transition: background-color .218s, border-color .218s, box-shadow .218s;
-        vertical-align: middle;
-        white-space: nowrap;
-        width: auto;
-        max-width: 400px;
-        min-width: min-content;
-      }
-
-      .gsi-material-button .gsi-material-button-icon {
-        height: 20px;
-        margin-right: 12px;
-        min-width: 20px;
-        width: 20px;
-      }
-
-      .gsi-material-button .gsi-material-button-content-wrapper {
-        -webkit-align-items: center;
-        align-items: center;
-        display: flex;
-        -webkit-flex-direction: row;
-        flex-direction: row;
-        -webkit-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-        height: 100%;
-        justify-content: space-between;
-        position: relative;
-        width: 100%;
-      }
-
-      .gsi-material-button .gsi-material-button-contents {
-        -webkit-flex-grow: 1;
-        flex-grow: 1;
-        font-family: 'Roboto', arial, sans-serif;
-        font-weight: 500;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        vertical-align: top;
-      }
-
-      .gsi-material-button .gsi-material-button-state {
-        -webkit-transition: opacity .218s;
-        transition: opacity .218s;
-        bottom: 0;
-        left: 0;
-        opacity: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-
-      .gsi-material-button:disabled {
-        cursor: default;
-        background-color: #ffffff61;
-        border-color: #1f1f1f1f;
-      }
-
-      .gsi-material-button:disabled .gsi-material-button-contents {
-        opacity: 38%;
-      }
-
-      .gsi-material-button:disabled .gsi-material-button-icon {
-        opacity: 38%;
-      }
-
-      .gsi-material-button:not(:disabled):active .gsi-material-button-state, 
-      .gsi-material-button:not(:disabled):focus .gsi-material-button-state {
-        background-color: #303030;
-        opacity: 12%;
-      }
-
-      .gsi-material-button:not(:disabled):hover {
-        -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
-        box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
-      }
-
-      .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
-        background-color: #303030;
-        opacity: 8%;
-      }
-
-
-
-    </style>
-    
-</head>
-
-
-<!-- Add Firebase SDK Scripts with defer attribute -->
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-database-compat.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js" defer></script>
-    <!-- FirebaseUI CSS -->
-    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
-
-<!-- Firebase Configuration Script -->
-
-    <script>
-
-      document.addEventListener("DOMContentLoaded", function() {
-        const firebaseConfig = {
-          apiKey: "AIzaSyDF1e_FBAv4P1krAwTKVyP3F5g4knp4Hew",
-          authDomain: "valuestudy.firebaseapp.com",
-          databaseURL: "https://valuestudy-default-rtdb.europe-west1.firebasedatabase.app",
-          projectId: "valuestudy",
-          storageBucket: "valuestudy.appspot.com",
-          messagingSenderId: "1092513324979",
-          appId: "1:1092513324979:web:b6823acdd1d63aca5935c6"
-        };
-
-        const firebaseApp = firebase.initializeApp(firebaseConfig);
-    })
-
-    
-</script>
-
-
-<title> Value Study </title>
-<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="css/widgets.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="js/menu.js"></script>
-<script src="js/footer.js"></script>
-<script src="js/widgets.js"></script>
-<script src="js/util.js"></script>
-<script src="js/custom.js"></script>
-<style>
-  .menu-widget {
-    color: rgb(255, 255, 255) !important;
-    opacity: 1 !important;
-    font-weight: 700 !important;
-  }
-</style>
-</head>
-
-<script>
-    function signInWithGoogle() {
-      var provider = new firebase.auth.GoogleAuthProvider();
-  
-      firebase.auth().signInWithPopup(provider)
-        .then(function(result) {
-          // User is signed in.
-          var user = result.user;
-          console.log(user);
-
-          // Redirect to the next page after successful sign-in
-        window.location.href = '/survey_preferences.html';
-        })
-        .catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          console.error(errorCode, errorMessage);
-        });
-    }
-  </script>
-
+<!-------------------------------------------------------------------------------------------->
+    <!--Start Cookie Banner-->
 
 <body>
-<div class="menu-container"></div>
-<div class="content-container">
-  
-    <div class="banner" style="color: black;  background-color: rgb(209, 209, 209); max-width: 900px; margin: 0 auto;">
-    <div class="banner-table flex-column" style="text-align: center;">
-      
-      <p>
-          
-        <h2>Angabe Ihrer Zahlungsbereitschaft </h2>
-
-        <br>
-        <br>
-        <br>
-        <form id="wtaForm">
-          <br>
-          <label for="wta" style="text-align: center;">Ich wäre für einen Betrag von:</label>
-          <div class="slider-container">
-            <input type="range" id="wta" name="wta" min="0" max="5" step="0.01" value="0" />
-            <div class="slider-labels">
-              <div class="label">0 EUR</div>
-              <div class="label">2.5 EUR</div>
-              <div class="label">5 EUR</div>
-              <br>
-            </div>
-            <br>
-          </div>
-        </form>
+<!-- Modal -->
+<dialog>
+  <div class="cookie-banner" id="cookieBanner">
+    <div id="cookieContent">
+      <h2 id="bannerTitle">Cookie Einstellungen</h2>
+      <!-- Text for design1-3 with the baseline text-->
+      <p class="cookie-text">
+        Um Ihr Nutzungserlebnis zu verbessern, verwendet diese Website Cookies. Dabei werden unterschiedliche Arten von Cookies verwendet, um Ihr Erlebnis auf dieser Website zu verbessern. Dazu gehören solche Cookies, die für den Betrieb dieser Website technisch erforderlich sind. Zudem werden Cookies verwendet, die für statistische Zwecke genutzt werden, Ihren Komfort auf dieser Website erhöhen oder zur Erstellung zielgerichteter Werbeangebote genutzt werden. 
+        Weitere Informationen zu diesen Technologien können Sie unserer <a href="/privacy.html" class="cookie-link" target="_blank">Datenschutzrichtlinie</a> entnehmen. 
         
+      <br>
+      <br>
+      </p>
+
+      <!-- Text for design4 which has the reject button within the text  -->
+      <p class="cookie-text design4-cookie-text" style="display: none;">
+        Um Ihr Nutzungserlebnis zu verbessern, verwendet diese Website Cookies. Dabei werden unterschiedliche Arten von Cookies verwendet, um Ihr Erlebnis auf dieser Website zu verbessern. Dazu gehören solche Cookies, die für den Betrieb dieser Website technisch erforderlich sind. Zudem werden Cookies verwendet, die für statistische Zwecke genutzt werden, Ihren Komfort auf dieser Website erhöhen oder zur Erstellung zielgerichteter Werbeangebote genutzt werden. 
+        Weitere Informationen zu diesen Technologien können Sie unserer <a href="/privacy.html" class="cookie-link" target="_blank">Datenschutzrichtlinie</a> entnehmen. 
+        Die Platzierung nicht essenzieller Cookies können Sie <a href="javascript:void(0);" id="decline-all-cookies-design4" class="cookie-link" onclick="declineAllCookies()">ablehnen</a>.
+        
+      <br>
+      </p>
+
+      <div class="cookie-buttons" id="cookieButtons">
+        <button id="accept-all-cookies" class="cookie-button accept-button" onclick="acceptAllCookies()">Alle Cookies akzeptieren</button>
+        <button id="decline-all-cookies" class="cookie-button decline-button" onclick="declineAllCookies()">Nicht-essenzielle Cookies ablehnen</button>
+        </div>
         <br>
-        <div class="chosen-price" id="chosenPrice" style="margin-top: 20px;">0.00 EUR bereit, mich mit meinem Google Konto ein zu loggen, bevor ich mit der Umfrage fortfahre. </div>
+        <a href="javascript:void(0);" class="cookie-link" onclick="showManageCookies()">Details und Cookie Einstellungen</a>
+      
+    </div>
+
+    <div id="manageCookiesContent" style="display: none;">
+      <h2 id="manageTitle">Cookie-Einstellungen verwalten</h2> 
+      <p class="settings-text">Wählen Sie aus, welchen Arten von Cookies Sie zustimmen: <br> <br>
+      <label class="switch">
+        <input type="checkbox" id="nonNecessarySwitch" checked disabled>
+        <span class="slider round"></span>
+      </label>
+      
+      <b><label for="nonNecessarySwitch">Funktionale Cookies</label></b><br>
+      Funktionale und technisch erforderliche Cookies helfen uns dabei, diese Webseite für ihre Besucher nutzbar zu machen, indem sie Grundfunktionen wie Seitennavigation oder die Erfassung angegebener Daten ermöglichen. Sie sorgen dafür, dass während Ihres Besuches getätigte Aktionen auf dieser Website korrekt erfasst werden können. 
+        Diese Dienste sind standardmäßig aktiviert und können nicht deaktiviert werden. 
+      
+      <br> <br>
+      <label class="switch">
+        <input type="checkbox" id="AnalyticSwitch">
+        <span class="slider round"></span>
+      </label>
+      <b><label for="AnalyticSwitch">Analytische Cookies</label></b><br>
+
+      Um unsere Dienstleistungen und diese Website zu verbessern, sammeln wir Daten in anonymisierter Form für statistische Zwecke. Mit Hilfe dieser Cookies ist es uns z.B. möglich, die Frequentierung und den Einfluss bestimmter Bereiche unserer Website zu ermitteln und den Inhalt zu optimieren.
+
+        <br> <br>
+        <label class="switch">
+          <input type="checkbox" id="ComfortSwitch">
+          <span class="slider round"></span>
+        </label>
+        <b><label for="ComfortSwitch">Komfort Cookies</label></b><br>
+  
+        Diese Cookies werden verwendet, um das Nutzungserlebnis auf Ihrer Website zu verbessern. Sie ermöglichen es Ihnen beispielsweise, bei Ihrem nächsten Besuch schnell auf frühere Fortschritte zuzugreifen, und wir verwenden sie, um Ihre Wünsche bei der Nutzung besser zu erfassen.
+  
+          <br> <br>
+        <label class="switch">
+          <input type="checkbox" id="MarketingSwitch">
+          <span class="slider round"></span>
+        </label>
+        <b><label for="MarketingSwitch">Marketing Cookies</label></b><br>
+  
+        Diese Cookies werden verwendet, um Besucher auf verschiedenen Websites zu verfolgen. Ziel ist es, Anzeigen zu schalten, die für den einzelnen Nutzer relevant und ansprechend sind und damit für Verlage und dritte Werbetreibende wertvoller sind.
 
       </p>
-        <script>
-
-            document.addEventListener("DOMContentLoaded", function () {
-                  const slider = document.getElementById("wta");
-                  const chosenPriceElement = document.getElementById('chosenPrice');
-
-                  // Function to update the chosen price
-                  function updateSliderValue() {
-                    const sliderValue = parseFloat(slider.value);
-                    chosenPriceElement.textContent = `${sliderValue.toFixed(2)} EUR bereit, mich mit meinem Google Konto ein zu loggen, bevor ich mit der Umfrage fortfahre. `;
-                  }
-
-                  // Add an event listener for the input event on the slider
-                  slider.addEventListener("input", updateSliderValue);
-
-                  // Initial update
-                  updateSliderValue();
-                });
-
-
-        </script>
-
-        
 
 
 
-          <button id="simulateButton" type="button" onclick="simulateExperiment()">Bestätigen</button>
 
-              <!-- Add this element to display the assigned price as text on the website -->
-            <div id="assignedPriceText" style="margin-top: 10px;"></div>
+      <br>
+      <button class="cookie-button" id="zurueckButton">Zurück</button>
+      <button class="cookie-button" onclick="applyCookieSettings()">Einstellungen anwenden</button>
+    </div>
+  </div>
+</dialog>
 
-            <button id="weiterButton" type="button" onclick="weiterButtonClick()" style="display: none;">Weiter</button>
+<style>
+  .cookie-banner {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #ccc; /* Default color is grey */
+  }
 
-            <br>
-            
+  .cookie-button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
 
 
-            
-        </form>
-        <div id="googleSignInContainer" style="display: none;">
-          <button class="gsi-material-button" onclick="signInWithGoogle()"> 
-          
-              <div class="gsi-material-button-state"></div>
-              <div class="gsi-material-button-content-wrapper">
-                <div class="gsi-material-button-icon">
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
-                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
-                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
-                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
-                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
-                    <path fill="none" d="M0 0h48v48H0z"></path>
-                  </svg>
-                </div>
-                <span class="gsi-material-button-contents">Melden Sie sich bei Google an um fortzufahren</span>
-                <span style="display: none;">Sign in with Google</span>
-              </div>
-            </button>
-      
-          
-          </div>
-        </div>
-        </div>
-        </div>
-</div> 
+  .cookie-banner.design1 .accept-button {
+    background-color: #4CAF50;
+  }
 
-<div class="banner" style="color: black;  background-color: rgb(209, 209, 209); max-width: 900px; margin: 0 auto;">
-  <div class="banner-table flex-column">
- 
-<p>
-    <b>Oder:</b>
-    <form id="loginOptionsForm">
-      <label>
-        <input type="radio" name="loginOption" value="option1"> Ich das grundsätzlich nicht möchte.
-      </label>
-      <label>
-        <input type="radio" name="loginOption" value="option2"> Ich dafür nur bereit wäre für einen Betrag, der über 5 EUR liegt.
-      </label>
-      <label>
-        <input type="radio" name="loginOption" value="option3"> Ich kein Google Konto habe.
-      </label>
-      <button type="submit" id="submitButton" style="display: block; margin: 0 auto; margin-top: 20px;" disabled>Weiter ohne Möglichkeit einer Zusatzvergütung</button>
-    </form>
-    
+  .cookie-banner.design1 .decline-button {
+    background-color: #F44336;
+  }
   
-  </p>
-  </div>
-  </div>
+  .cookie-banner .accept-button {
+    background-color: grey; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .cookie-banner .decline-button {
+    background-color: grey; /* Red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+
+  #cookieButtons button {
+    margin: 0 5px;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 26px;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+</style>
 
 <script>
-  // WTA FORM BEGIN
-  let assignedPrice;
-  let experimentConducted = false;
+  const dialogElement = document.querySelector("dialog");
 
-  function simulateExperiment() {
-        // Check if the experiment has already been conducted
-        if (experimentConducted) {
-            alert("Experiment has already been conducted. You cannot redo it.");
-            return;
-        }
+  dialogElement.showModal();
 
-        // Get the selected WTA value
-        const selectedWTA = parseFloat(document.getElementById("wta").value);
+  function acceptAllCookies() {
+    console.log("All cookies accepted");
+    dialogElement.close();
+  }
 
-        // Simulate the random assignment of a price
-        assignedPrice = Math.random() * 5; // Random number between 0 and 5
+  function declineAllCookies() {
+    console.log("All cookies declined");
+    dialogElement.close();
+  }
 
-        // Show the assigned price on the webpage
-        document.getElementById("assignedPriceText").innerText = `Sie haben angegeben, gegen eine Zahlung von ${selectedWTA.toFixed(2)},- EUR bereit zu sein, sich mit Ihrem Google Account anzumelden. Vielen Dank für diese Angabe. Der Preis für die Anmeldung wurde zufällig bestimmt. Er beträgt ${assignedPrice.toFixed(2)} EUR. Der ausgeloste Preis liegt unter der von Ihnen angegebenen Bereitschaft. Sie können jetzt mit der Umfrage fortfahren. `;
+  function showManageCookies() {
+    document.getElementById("cookieContent").style.display = "none";
+    document.getElementById("manageCookiesContent").style.display = "block";
+  }
 
-        // Compare the random price with the selected WTA
-        if (assignedPrice > selectedWTA) {
-            // Display the Google Sign-In container
-            document.getElementById("googleSignInContainer").style.display = "block";
-            // Show the text for prices above WTA
-            document.getElementById("additionalText").innerText = `Der ausgeloste Preis liegt über der von Ihnen angegebenen Bereitschaft. Sie erhalten am Ende der Umfrage eine zusätzliche Zahlung von ${assignedPrice.toFixed(2)} EUR. Bitte melden Sie sich jetzt mit Ihrem Google Konto an:`;
-            // Hide other buttons
-            document.getElementById("weiterButton").style.display = "none";
-            
-        } else {
-            // Show the Weiter button for prices below or equal to WTA
-            // Display additional text
-            document.getElementById("additionalText").innerText = "";
-            // Hide the Google Sign-In container
-            document.getElementById("googleSignInContainer").style.display = "none";
-            
-            document.getElementById("weiterButton").style.display = "block";
-        }
+  function applyCookieSettings() {
+    const analyticSwitch = document.getElementById("AnalyticSwitch");
+    const comfortSwitch = document.getElementById("ComfortSwitch");
+    const marketingSwitch = document.getElementById("MarketingSwitch");
 
-          // Set the flag to true after the experiment is conducted
-          experimentConducted = true;
-          document.getElementById("simulateButton").disabled = true;
+    if (analyticSwitch.checked) {
+        console.log("Analytic cookies enabled");
+    } else {
+        console.log("Analytic cookies disabled");
     }
 
-  function showAssignedPrice() {
-      if (assignedPrice === undefined) {
-          alert(`Please simulate the experiment first.`);
+    if (comfortSwitch.checked) {
+        console.log("Comfort cookies enabled");
+    } else {
+        console.log("Comfort cookies disabled");
+    }
+
+    if (marketingSwitch.checked) {
+        console.log("Marketing cookies enabled");
+    } else {
+        console.log("Marketing cookies disabled");
+    }
+
+    // Display content and hide manage cookies section
+    document.getElementById("cookieContent").style.display = "block";
+    document.getElementById("manageCookiesContent").style.display = "none";
+
+    dialogElement.close();
+}
+  // For the Zurück button on the second layer
+  function showCookieContent() {
+      document.getElementById("cookieContent").style.display = "block";
+      document.getElementById("manageCookiesContent").style.display = "none";
+  }
+
+  document.getElementById("zurueckButton").addEventListener("click", showCookieContent);
+
+
+
+  function setRandomDesign() {
+    const designs = ["design1", "design2", "design3", "design4"];
+    const randomDesign = designs[Math.floor(Math.random() * designs.length)];
+
+    const cookieBanner = document.getElementById("cookieBanner");
+
+    // Remove all design classes
+    cookieBanner.classList.remove(...designs);
+
+    // Add class for the randomly selected design
+    cookieBanner.classList.add(randomDesign);
+
+    // Hide all cookie text elements
+    const cookieTexts = document.querySelectorAll(".cookie-text");
+    cookieTexts.forEach(text => text.style.display = "none");
+
+    // Show text element for design4 if selected
+    if (randomDesign === "design4") {
+      const design4Text = document.querySelector(".design4-cookie-text");
+      design4Text.style.display = "block";
+      // Hide the .cookie-text for design4
+      const baselineText = document.querySelector(".cookie-text");
+      baselineText.style.display = "none";
+      // Hide the decline-all-cookies button for design4
+      document.getElementById("decline-all-cookies").style.display = "none";
+    } else {
+      // Show the .cookie-text for designs 1-3
+      const baselineText = document.querySelector(".cookie-text");
+      baselineText.style.display = "block";
+      // Show/hide the decline-all-cookies button for designs 1-3
+      if (randomDesign === "design2") {
+        document.getElementById("decline-all-cookies").style.display = "none";
       } else {
-          alert(`Assigned Price: ${assignedPrice.toFixed(2)} EUR`);
+        document.getElementById("decline-all-cookies").style.display = "inline-block";
       }
-  }
+    }
+}
+  
 
-  function continueToSurvey() {
-      // Redirect to the survey page (replace "survey.html" with the actual page URL)
-      window.location.href = "survey_preferences.html";
-  }
-
-  function weiterButtonClick() {
-      // Redirect to the survey page for prices above WTA
-      window.location.href = "survey_preferences.html";
-  }
-// WTA FORM END
-
-
-// BEGIN ADDITIONAL CHOICE LOG IN 
-  const form = document.getElementById("loginOptionsForm");
-  const submitButton = document.getElementById("submitButton");
-
-  form.addEventListener("change", function() {
-    submitButton.disabled = false;
-  });
-
-  form.addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission behavior
-    window.location.href = "survey_preferences.html"; // Redirect to the specified URL
-  });
-
-// END ADDITIONAL CHOICE LOG IN 
+  // Call the function to set a random design of the cookie banner
+  setRandomDesign();
 </script>
 
-<script>
-  function onSignIn(googleUser) {
-    // Get the user's profile information
-    var profile = googleUser.getBasicProfile();
-    
-    
-    // Redirect to another page
-    window.location.href = '/survey_preferences.html/';  // Replace with your desired URL
-  }
-</script>
-
-
-
-
-<div class="footer-container"></div>
 </body>
+
+
+<!--End Cookie Banner-->
+    <!-------------------------------------------------------------------------------------------->
+
+
+
+<head>
+  <title>Value Study</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/footer.js"></script>
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+
+
+</head>
+
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <!-------------------------------------------------------------------------------------------->
+    <!--Start Header-->
+    <div class="banner" style="background: url('img/example-scene.svg') no-repeat center; background-size: contain; height: 300px;"></div>
+    <div class="banner" style="color: black;  background-color: rgb(255, 225, 0); max-width: 900px; margin: 0 auto;">
+      <div class="banner-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+          <h2 class="add-top-margin-small">Vielen Dank für Ihre Teilnahme an unserer Studie!</h2>
+          <br>
+          <p class="text">
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
+            augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
+            condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
+            vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae
+            sapien ut libero venenatis faucibus. Nullam quis ante.
+          
+          
+            </p>
+          
+          
+
+            
+          </div>
+        </div>
+      <a href="consent.html" class="small-button">Studie beginnen</a>
+      </div>
+    </div>
+  </div>
+
+
+    <!--End Header-->
+    <!-------------------------------------------------------------------------------------------->
+
+
+
+      </div>
+    </div>
+    <div class="footer-container"></div>
+  </div>
+</body>
+
+
+
 </html>

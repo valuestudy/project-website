@@ -114,6 +114,33 @@
         <div class="flex-row">
     
 
+
+
+          <style>
+            .menu-widget {
+              color: rgb(255, 255, 255) !important;
+              opacity: 1 !important;
+              font-weight: 700 !important;
+            }
+            
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #9e9e9e;
+            }
+                    
+            /* Alternate row background color */
+            tr:nth-of-type(even) {
+            background-color: #f2f2f2; /* Alternate background color */
+            }
+          </style>
 <body>
   <!-- Your HTML Survey Form -->
   <div class="flex-row"><form id="surveyForm">
@@ -121,37 +148,81 @@
               <h2 id="Survey">Cookie Banner Umfrage</h2>
               <hr>
               <p class="text">
-              Bitte beantworten Sie folgende Fragen zu Ihrer Wahrnehmung und Ihrer Meinung des Cookie Banners. 
+              Bitte beantworten Sie folgende Fragen zu Ihrer Wahrnehmung des Cookie Banners. 
               </p>
-              <div class="custom-survey add-top-margin add-bottom-margin">
+              
                 <span class="text">
-                    <h2> Ihre Wahrnehmung </h2>
-                    <br>
-                    <img src="img/cookie_banner.png" alt="Cookie banner without dark pattern"></span>
-
                     
-                <div class="custom-radio-group-survey add-top-margin">
-                <div><input type="radio" name="scenario-question-1" value="Dieser Cookie Banner ist unehrlich zu seinen Nutzern." id="scenario-question-1-item-6"> <label class="break-long-url" for="scenario-question-1-item-6">Dieser Cookie Banner ist unehrlich zu seinen Nutzern.</label></div>
-                    <div><input type="radio" name="scenario-question-1" value="Dieser Cookie Banner versucht Nutzer zu einer Auswahl zu verleiten, die sie eigentlich nicht treffen wollen." id="scenario-question-1-item-7"> <label class="break-long-url" for="scenario-question-1-item-7">Dieser Cookie Banner versucht Nutzer zu einer Auswahl zu verleiten, die sie eigentlich nicht treffen wollen.</label></div>
-                    <div><input type="radio" name="scenario-question-1" value="Dieser Cookie Banner verwendet missverständliche Techniken, um Nutzer zu einer Auswahl zu verleiten, die sie eigentlich nicht treffen wollen." id="scenario-question-1-item-8"> <label class="break-long-url" for="scenario-question-1-item-8">Dieser Cookie Banner verwendet missverständliche Techniken, um Nutzer zu einer Auswahl zu verleiten, die sie eigentlich nicht treffen wollen.</label></div>
-                    <div><input type="radio" name="scenario-question-1" value="Es war kompliziert für mich, die Cookie Einstellungen auszuwählen." id="scenario-question-1-item-9"> <label class="break-long-url" for="scenario-question-1-item-9">Es war kompliziert für mich, die Cookie Einstellungen auszuwählen.</label></div>
-                    <div><input type="radio" name="scenario-question-1" value="Es war frustrierend für mich, die Cookie Einstellungen auszuwählen." id="scenario-question-1-item-10"> <label class="break-long-url" for="scenario-question-1-item-10">Es war frustrierend für mich, die Cookie Einstellungen auszuwählen.</label></div>
-                    <div><input type="radio" name="scenario-question-1" value="Es war einfach für mich, die Cookie Einstellungen auszuwählen." id="scenario-question-1-item-11"> <label class="break-long-url" for="scenario-question-1-item-11">Es war einfach für mich, die Cookie Einstellungen auszuwählen.</label></div>
-                </div>
-            </div>
-            <div class="custom-survey add-top-margin add-bottom-margin">
-                <span class="text">
-                    <h2> Ihre Meinung </h2>
-                    Innerhalb dieses Cookie Banners haben Sie folgende Handlung ausgewählt:</span>
-                <div class="custom-radio-group-survey add-top-margin">
-                    <div><input type="radio" name="scenario-question-2" value="[Vollständige Einwilligung zur Platzierung von Cookies / Nur Auswahl der … Cookies / Vollständige Ablehnung von Cookies]" id="scenario-question-2-item-1"> <label class="break-long-url" for="scenario-question-2-item-1">[Vollständige Einwilligung zur Platzierung von Cookies / Nur Auswahl der … Cookies / Vollständige Ablehnung von Cookies]</label></div>
-                    <div><input type="radio" name="scenario-question-2" value="Ich bereue meine ausgewählten Cookie Einstellungen" id="scenario-question-2-item-2"> <label class="break-long-url" for="scenario-question-2-item-2">Ich bereue meine ausgewählten Cookie Einstellungen</label></div>
-                    <div><input type="radio" name="scenario-question-2" value="Ich würde meine Cookie Einstellungen ändern, wenn ich jetzt noch die Möglichkeit dazu hätte" id="scenario-question-2-item-3"> <label class="break-long-url" for="scenario-question-2-item-3">Ich würde meine Cookie Einstellungen ändern, wenn ich jetzt noch die Möglichkeit dazu hätte</label></div>
-                    <div><input type="radio" name="scenario-question-2" value="Ich bin zufrieden mit meiner Cookie Auswahl" id="scenario-question-2-item-4"> <label class="break-long-url" for="scenario-question-2-item-4">Ich bin zufrieden mit meiner Cookie Auswahl ⇔</label></div>
-                </div>
-            </div>
+                    <br>
+                    <img src="img/cookie_banner.png" alt="Cookie banner without dark pattern"><br><br><br><br><br>
+                  
+                  </span>
+                    
+
+                    <form id="likertForm">
+                      <div class="custom-radio-group-survey add-top-margin">
+                      <table>
+                          <tr>
+                              <th>Ihre Wahrnehmung</th>
+                              <th>Stimme voll zu</th>
+                              <th>Stimme zu</th>
+                              <th>Neutral</th>
+                              <th>Stimme nicht zu</th>
+                              <th>Stimme gar nicht zu</th>
+                          </tr>
+                          <tr>
+                              <td>Dieser Cookie Banner ist unehrlich zu seinen Nutzern.</td>
+                              <td><input type="radio" name="question-1" value="Stimme gar nicht zu"></td>
+                              <td><input type="radio" name="question-1" value="Stimme nicht zu"></td>
+                              <td><input type="radio" name="question-1" value="Neutral"></td>
+                              <td><input type="radio" name="question-1" value="Stimme zu"></td>
+                              <td><input type="radio" name="question-1" value="Stimme voll zu"></td>
+                          </tr>
+                          <tr>
+                              <td>Dieser Cookie Banner versucht Nutzer zu einer Auswahl zu verleiten, die sie eigentlich nicht treffen wollen.</td>
+                              <td><input type="radio" name="question-2" value="Stimme gar nicht zu"></td>
+                              <td><input type="radio" name="question-2" value="Stimme nicht zu"></td>
+                              <td><input type="radio" name="question-2" value="Neutral"></td>
+                              <td><input type="radio" name="question-2" value="Stimme zu"></td>
+                              <td><input type="radio" name="question-2" value="Stimme voll zu"></td>
+                          </tr>
+                          <tr>
+                              <td>Dieser Cookie Banner verwended missverständliche Techniken, um Nutzer zu einer Auswahl zu verleiten, die sie eigetnlich nicht treffen wollen.</td>
+                              <td><input type="radio" name="question-3" value="Stimme gar nicht zu"></td>
+                              <td><input type="radio" name="question-3" value="Stimme nicht zu"></td>
+                              <td><input type="radio" name="question-3" value="Neutral"></td>
+                              <td><input type="radio" name="question-3" value="Stimme zu"></td>
+                              <td><input type="radio" name="question-3" value="Stimme voll zu"></td>
+                          </tr>
+                          <tr>
+                              <td>Es war kompliziert für mich, die Cookie Einstellung auszuwählen.</td>
+                              <td><input type="radio" name="question-4" value="Stimme gar nicht zu"></td>
+                              <td><input type="radio" name="question-4" value="Stimme nicht zu"></td>
+                              <td><input type="radio" name="question-4" value="Neutral"></td>
+                              <td><input type="radio" name="question-4" value="Stimme zu"></td>
+                              <td><input type="radio" name="question-4" value="Stimme voll zu"></td>
+                          </tr>
+                          <tr>
+                              <td>Es war frustrierend für mich, die Cookie Einstellung auszuwählen.</td>
+                              <td><input type="radio" name="question-5" value="Stimme gar nicht zu"></td>
+                              <td><input type="radio" name="question-5" value="Stimme nicht zu"></td>
+                              <td><input type="radio" name="question-5" value="Neutral"></td>
+                              <td><input type="radio" name="question-5" value="Stimme zu"></td>
+                              <td><input type="radio" name="question-5" value="Stimme voll zu"></td>
+                          </tr>
+                          <tr>
+                              <td>Es war einfach für mich, die Cookie Einstellungen auszuwählen.</td>
+                              <td><input type="radio" name="question-6" value="Stimme gar nicht zu"></td>
+                              <td><input type="radio" name="question-6" value="Stimme nicht zu"></td>
+                              <td><input type="radio" name="question-6" value="Neutral"></td>
+                              <td><input type="radio" name="question-6" value="Stimme zu"></td>
+                              <td><input type="radio" name="question-6" value="Stimme voll zu"></td>
+                          </tr>
+                        </table>
+
+                        <br>
             <button type="button" onclick="validateAndSubmit()">Weiter</button>
-    </div>
+    
             </div></form>
           
               
@@ -186,7 +257,7 @@
       
           // Function to handle form submission
           function handleFormSubmission() {
-            window.location.href = 'debriefing.html';
+            window.location.href = 'cookie_survey2.html';
           }
         </script>
       </div>

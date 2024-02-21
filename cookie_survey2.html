@@ -36,8 +36,8 @@
           surveyRef.push(data)
             .then(() => {
               console.log('Survey response sent to Firebase successfully!');
-              // Optionally, reset the form or perform other actions, e.g. redirect to survey_knowledge2.html
-              window.location.href = 'survey_knowledge2.html';
+              // Optionally, reset the form or perform other actions, e.g. redirect to success.html
+              window.location.href = 'success.html';
             })
             .catch(error => {
               console.error('Error sending survey response to Firebase:', error);
@@ -80,7 +80,7 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="js/menu.js"></script>
@@ -88,32 +88,20 @@
   <script src="js/widgets.js"></script>
   <script src="js/util.js"></script>
   <script src="js/custom.js"></script>
-
-
-
   <style>
     .menu-widget {
       color: rgb(255, 255, 255) !important;
       opacity: 1 !important;
       font-weight: 700 !important;
     }
-    
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
-    th {
-        background-color: #9e9e9e;
-    }
-            
-    /* Alternate row background color */
-    tr:nth-of-type(even) {
-    background-color: #f2f2f2; /* Alternate background color */
+
+   
+
+    img {
+        max-width: 40%; /* Make the image responsive */
+        height: auto; /* Maintain the image's aspect ratio */
+        margin: 0 auto; /* Center the image horizontally */
+        display: block; /* Remove extra spacing below the image */
     }
   </style>
 </head>
@@ -124,65 +112,107 @@
     <div class="content">
       <div class="content-table flex-column">
         <div class="flex-row">
-            <div class="flex-item flex-column-survey">
-                <h2 id="Survey">Wissen über institutionelle Praktiken</h2>
-                <hr>
-                <p class="text">
-                Bitte beantworten Sie folgende Fragen zum Kentnissstand zum Thema online Privatsphäre.
+    
+
+
+
+          <style>
+            .menu-widget {
+              color: rgb(255, 255, 255) !important;
+              opacity: 1 !important;
+              font-weight: 700 !important;
+            }
+            
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #9e9e9e;
+            }
+                    
+            /* Alternate row background color */
+            tr:nth-of-type(even) {
+            background-color: #f2f2f2; /* Alternate background color */
+            }
+          </style>
+<body>
+
+    <div class="flex-row"><form id="surveyForm">
+        <div class="flex-item flex-column-survey">
+          <h2 id="Survey">Cookie Banner Umfrage</h2>
+          <hr>
+          <p class="text">
+          Bitte beantworten Sie folgende Fragen zu Ihrer Meinung des Cookie Banners. 
+          </p>
+          
+            <span class="text">
+                
                 <br>
-                </p>
-                <br>
-            <form id="likertForm">
-                <div class="custom-radio-group-survey add-top-margin">
-                <table>
-                    <tr>
-                      <th>Fragen</th>
-                        <th>Wahr</th>
-                        <th>Falsch</th>
-                        <th>Weiß nicht</th>
-                    </tr>
-                    <tr>
-                        <td>Die National Security Agency (NSA) greift nur auf Nutzerdaten zu, die öffentlich und für jederman zugänglich sind.</td>
-                        <td><input type="radio" name="question-1" value="Wahr"></td>
-                        <td><input type="radio" name="question-1" value="Falsch"></td>
-                        <td><input type="radio" name="question-1" value="Weiß nicht"></td>
-                    </tr>
-                    <tr>
-                        <td>Betreiber sozialer Netzwerke (z.B. Facebook) sammeln und verarbeiten auch Informationen von Personen, die dieses Netzwerk gar nicht nutzen.</td>
-                        <td><input type="radio" name="question-2" value="Wahr"></td>
-                        <td><input type="radio" name="question-2" value="Falsch"></td>
-                        <td><input type="radio" name="question-2" value="Weiß nicht"></td>
-                    </tr>
-                    <tr>
-                        <td>Daten, die Betreiber sozialer Netzwerke (z.B. Facebook) über die Nutzer sammlen, werden nach 5 Jahren gelöscht.</td>
-                        <td><input type="radio" name="question-3" value="Wahr"></td>
-                        <td><input type="radio" name="question-3" value="Falsch"></td>
-                        <td><input type="radio" name="question-3" value="Weiß nicht"></td>
-                    </tr>
-                    <tr>
-                        <td>Unternehmen kombinieren Daten, die auf verschiedenen Websites im Internet hinterlassen werden und stellen daraus Nutzerprofile zusammen.</td>
-                        <td><input type="radio" name="question-4" value="Wahr"></td>
-                        <td><input type="radio" name="question-4" value="Falsch"></td>
-                        <td><input type="radio" name="question-4" value="Weiß nicht"></td>
-                    </tr>
-                    <tr>
-                        <td>E-Mails werden häufig über mehrere Rechner weitergeleitet, bevor sie bei ihrem eigentlichen Empfänger ankommen.</td>
-                        <td><input type="radio" name="question-5" value="Wahr"></td>
-                        <td><input type="radio" name="question-5" value="Falsch"></td>
-                        <td><input type="radio" name="question-5" value="Weiß nicht"></td>
-                    </tr>
-             
-                </table>
-      
-              </div>
+                <img src="img/cookie_banner.png" alt="Cookie banner without dark pattern"><br><br><br><br><br>
+              
+              </span>
+                
+
+                    <form id="likertForm">
+                      <div class="custom-radio-group-survey add-top-margin">
+                      <table>
+                          <tr>
+                              <th>Ihre Meinung</th>
+                              <th>Stimme voll zu</th>
+                              <th>Stimme zu</th>
+                              <th>Neutral</th>
+                              <th>Stimme nicht zu</th>
+                              <th>Stimme gar nicht zu</th>
+                          </tr>
+                          <tr>
+                              <td>Ich bereue meine ausgewählten Cookie Einstellungen.</td>
+                              <td><input type="radio" name="question-1" value="Stimme gar nicht zu"></td>
+                              <td><input type="radio" name="question-1" value="Stimme nicht zu"></td>
+                              <td><input type="radio" name="question-1" value="Neutral"></td>
+                              <td><input type="radio" name="question-1" value="Stimme zu"></td>
+                              <td><input type="radio" name="question-1" value="Stimme voll zu"></td>
+                          </tr>
+                          <tr>
+                              <td>Ich würde meine Cookie Einstellungen ändern, wenn ich jetzt noch die Möglichkeit dazu hätte.</td>
+                              <td><input type="radio" name="question-2" value="Stimme gar nicht zu"></td>
+                              <td><input type="radio" name="question-2" value="Stimme nicht zu"></td>
+                              <td><input type="radio" name="question-2" value="Neutral"></td>
+                              <td><input type="radio" name="question-2" value="Stimme zu"></td>
+                              <td><input type="radio" name="question-2" value="Stimme voll zu"></td>
+                          </tr>
+                          <tr>
+                              <td>Ich bin zufrieden mit meiner Cookie Auswahl.</td>
+                              <td><input type="radio" name="question-3" value="Stimme gar nicht zu"></td>
+                              <td><input type="radio" name="question-3" value="Stimme nicht zu"></td>
+                              <td><input type="radio" name="question-3" value="Neutral"></td>
+                              <td><input type="radio" name="question-3" value="Stimme zu"></td>
+                              <td><input type="radio" name="question-3" value="Stimme voll zu"></td>
+                          </tr>
+                      </table>
+
+                        <br>
             <button type="button" onclick="validateAndSubmit()">Weiter</button>
-            </div></form>
+
+        </div></form>
+    </div>
           
               
 
-            
-            <script>
-                function validateAndSubmit() {
+            </div>
+          </div>
+          <!--End Survey-->
+          <!-------------------------------------------------------------------------------------------->
+
+
+        </div>
+        <script>
+          function validateAndSubmit() {
             // Get all radio groups
             const radioGroups = document.querySelectorAll('.custom-radio-group-survey');
       
@@ -198,17 +228,15 @@
             } else {
               alert('Bitte beantworten Sie alle Fragen.');
             }
-            }
-        
-            // Rest of your existing JavaScript code...
-        
-            // Function to handle form submission
-            function handleFormSubmission() {
-                window.location.href = 'survey_knowledge2.html';
-            }
-            </script>
-
-
+          }
+      
+          // Rest of your existing JavaScript code...
+      
+          // Function to handle form submission
+          function handleFormSubmission() {
+            window.location.href = 'debriefing.html';
+          }
+        </script>
       </div>
     </div>
     <div class="footer-container"></div>
