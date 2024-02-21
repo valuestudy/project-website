@@ -36,7 +36,7 @@
           surveyRef.push(data)
             .then(() => {
               console.log('Survey response sent to Firebase successfully!');
-              // Optionally, reset the form or perform other actions, e.g. redirect to success.html
+              // Optionally, reset the form or perform other actions, e.g. redirect to survey_knowledge2.html
               window.location.href = 'success.html';
             })
             .catch(error => {
@@ -125,10 +125,10 @@
       <div class="content-table flex-column">
         <div class="flex-row">
             <div class="flex-item flex-column-survey">
-                <h2 id="Survey">Datenschutz-Präferenzen</h2>
+                <h2 id="Survey">Wissen über institutionelle Praktiken</h2>
                 <hr>
                 <p class="text">
-                Bitte beantworten Sie folgende Fragen zu Ihren Ansichten hinsichtlich Ihrer online Privatsphäre. 
+                Bitte beantworten Sie folgende Fragen zum Kentnissstand zum Thema online Privatsphäre.
                 <br>
                 </p>
                 <br>
@@ -136,74 +136,45 @@
                 <div class="custom-radio-group-survey add-top-margin">
                 <table>
                     <tr>
-                        <th>Fragen</th>
-                        <th>Stimme voll zu</th>
-                        <th>Stimme zu</th>
-                        <th>Neutral</th>
-                        <th>Stimme nicht zu</th>
-                        <th>Stimme gar nicht zu</th>
+                      <th>Fragen</th>
+                        <th>Wahr</th>
+                        <th>Falsch</th>
+                        <th>Weiß nicht</th>
                     </tr>
                     <tr>
-                        <td>Es ist wichtig für mich, meine Privatsphäre im Internet zu schützen.</td>
-                        <td><input type="radio" name="question-1" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-1" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-1" value="Neutral"></td>
-                        <td><input type="radio" name="question-1" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-1" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Wenn ich Websites besuche, versuche ich normalerweise, so wenig Daten wie möglich preiszugeben.</td>
-                        <td><input type="radio" name="question-2" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-2" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-2" value="Neutral"></td>
-                        <td><input type="radio" name="question-2" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-2" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Ich schätze personalisierte Werbung, die auf meinen vorherigen Online-Aktivitäten zugeschnitten sind.</td>
-                        <td><input type="radio" name="question-3" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-3" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-3" value="Neutral"></td>
-                        <td><input type="radio" name="question-3" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-3" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Im Allgemeinen bin ich besorgt um meine Privatsphäre bei der Nutzung des Internets.</td>
-                        <td><input type="radio" name="question-4" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-4" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-4" value="Neutral"></td>
-                        <td><input type="radio" name="question-4" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-4" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Ich bin besorgt darüber, dass Online-Organisationen nicht sind, wer sie vorgeben zu sein.</td>
-                        <td><input type="radio" name="question-5" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-5" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-5" value="Neutral"></td>
-                        <td><input type="radio" name="question-5" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-5" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Ich bin besorgt, dass bei der Anmeldung oder bei Online-Einkäufen viele persönliche Informationen angeben werden müssen.</td>
-                        <td><input type="radio" name="question-6" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-6" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-6" value="Neutral"></td>
-                        <td><input type="radio" name="question-6" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-6" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Ich bin besorgt über Identitätsdiebstahl im Internet.</td>
-                        <td><input type="radio" name="question-7" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-7" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-7" value="Neutral"></td>
-                        <td><input type="radio" name="question-7" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-7" value="Stimme voll zu"></td>
-                    </tr>
+                        <td>Das Nachverfolgen der eigenen Internetnutzung kann durch das regelmäßige Löschen von Browserinformationen (Cookies, Cache, Browserverlauf) nicht erschwert werden</td>
+                      <td><input type="radio" name="question-1" value="Wahr" id="question-1-wahr"></td>
+                      <td><input type="radio" name="question-1" value="Falsch" id="question-1-falsch"></td>
+                      <td><input type="radio" name="question-1" value="Weiß nicht" id="question-1-weiss-nicht"></td>
+                  </tr>
+                  <tr>
+                      <td>Durch das Surfen im "Private Browsing"-Modus kann die Rekonstruktion des eigenen Surfverhaltens erschwert werden, da keine Browserinformationen gespeichert werden.</td>
+                      <td><input type="radio" name="question-2" value="Wahr" id="question-2-wahr"></td>
+                      <td><input type="radio" name="question-2" value="Falsch" id="question-2-falsch"></td>
+                      <td><input type="radio" name="question-2" value="Weiß nicht" id="question-2-weiss-nicht"></td>
+                  </tr>
+                  <tr>
+                      <td>Durch die Nutzung von falschen Namen oder Pseudonymen kann die Identifizierung der eigenen Person im Internet zumindest erschwert werden.</td>
+                      <td><input type="radio" name="question-3" value="Wahr" id="question-3-wahr"></td>
+                      <td><input type="radio" name="question-3" value="Falsch" id="question-3-falsch"></td>
+                      <td><input type="radio" name="question-3" value="Weiß nicht" id="question-3-weiss-nicht"></td>
+                  </tr>
+                  <tr>
+                      <td>Auch wenn selbst schwere Passwörter von IT-Profis geknackt werden können, ist es sinnvoll, Passwörter zu verwenden, die aus einer Kombination von Buchstaben, Zahlen und Sonderzeichen bestehen und keine Wörter, Namen oder einfache Zahlenkombinationen enthalten.</td>
+                      <td><input type="radio" name="question-4" value="Wahr" id="question-4-wahr"></td>
+                      <td><input type="radio" name="question-4" value="Falsch" id="question-4-falsch"></td>
+                      <td><input type="radio" name="question-4" value="Weiß nicht" id="question-4-weiss-nicht"></td>
+                  </tr>
+                  <tr>
+                      <td>Um den Zugang zu eigenen Daten zu erschweren, sollte man verschiedene Passwörter und Benutzernamen für unterschiedliche Anwendungen nutzen und diese häufig ändern.</td>
+                      <td><input type="radio" name="question-5" value="Wahr" id="question-5-wahr"></td>
+                      <td><input type="radio" name="question-5" value="Falsch" id="question-5-falsch"></td>
+                      <td><input type="radio" name="question-5" value="Weiß nicht" id="question-5-weiss-nicht"></td>
+                  </tr>
                 </table>
       
-            
-              <br>
-            <button type="button" onclick="validateAndSubmit()" >Weiter</button>
+              </div>
+            <button type="button" onclick="validateAndSubmit()">Weiter</button>
             </div></form>
           
               
@@ -232,7 +203,7 @@
         
             // Function to handle form submission
             function handleFormSubmission() {
-                window.location.href = 'survey_preferences2.html';
+                window.location.href = 'success.html';
             }
             </script>
 

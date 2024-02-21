@@ -118,22 +118,50 @@
                 vel, luctus pulvinar, hendrerit id, lorem.
               </p>
               <div class="custom-survey add-top-margin add-bottom-margin">
-                <span class="text">1. What is the highest level of education you have completed?</span>
+                <span class="text">1. Was ist Ihr höchster Bildungsabschluss?</span>
                 <div class="custom-radio-group-survey add-top-margin">
-                  <div><input type="checkbox" name="scenario-question-2" value="Highschool" id="scenario-question-2-item-1"> <label class="break-long-url" for="scenario-question-2-item-1">Highschool</label></div>
-                  <div><input type="checkbox" name="scenario-question-2" value="Vocational Training" id="scenario-question-2-item-2"> <label class="break-long-url" for="scenario-question-2-item-2">Vocational training</label></div>
-                  <div><input type="checkbox" name="scenario-question-2" value="University" id="scenario-question-2-item-3"> <label class="break-long-url" for="scenario-question-2-item-3">University</label></div>
-                </div>
-              </div>
-              <div class="custom-survey add-top-margin add-bottom-margin">
+                    <div><input type="radio" name="education" value="NoDegree" id="education-item-1"> <label class="break-long-url" for="education-item-1">Kein Abschluss</label></div>
+                    <div><input type="radio" name="education" value="MittlereReife" id="education-item-2"> <label class="break-long-url" for="education-item-2">Mittlere Reife</label></div>
+                    <div><input type="radio" name="education" value="Abitur" id="education-item-3"> <label class="break-long-url" for="education-item-3">Abitur</label></div>
+                    <div><input type="radio" name="education" value="University" id="education-item-4"> <label class="break-long-url" for="education-item-4">Bachelor</label></div>
+                    <div><input type="radio" name="education" value="Master" id="education-item-5"> <label class="break-long-url" for="education-item-5">Master</label></div>
+                    <div><input type="radio" name="education" value="Promotion" id="education-item-6"> <label class="break-long-url" for="education-item-6">Promotion</label></div>
+                </div></div>
                 
-              <label for="age">2. What is your age?</label>
-              <input type="number" id="age" name="age" required>
+
+              <div class="custom-survey add-top-margin add-bottom-margin">
+              <label for="age">2. Alter</label>
+              <select id="age" name="age" required>
+                  <option value="" disabled selected>Bitte auswählen</option>
+                  <option value="A">Unter 18 Jahren</option>
+                  <option value="B">18-24 Jahre alt</option>
+                  <option value="C">25-34 Jahre alt</option>
+                  <option value="D">35-44 Jahre alt</option>
+                  <option value="E">45-54 Jahre alt</option>
+                  <option value="F">55-64 Jahre alt</option>
+                  <option value="G">65+ Jahre alt</option>
+              </select>
+              <br><br>
               </div>
 
-              <button type="submit">Submit</button>
-            </div></form>
-          
+              <div class="custom-survey add-top-margin add-bottom-margin">
+                    <label for="gender">3. Geschlecht:</label>
+                    <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Bitte auswählen</option>
+                    <option value="männlich">männlich</option>
+                    <option value="weiblich">weiblich</option>
+                    <option value="divers">divers</option>
+                    <option value="NA">möchte ich nicht angeben</option>
+                    </select><br><br></div>
+
+
+
+
+                    <form id="redirectForm">
+                        <button type="button" onclick="redirectToSurvey()">Weiter</button>
+                    </form>
+                    </form>
+                    
               
 
             </div>
@@ -150,4 +178,10 @@
   </div>
 </body>
 
+
+<script>
+    function redirectToSurvey() {
+        window.location.href = "survey_preferences.html";
+    }
+</script>
 </html>

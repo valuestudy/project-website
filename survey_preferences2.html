@@ -36,8 +36,8 @@
           surveyRef.push(data)
             .then(() => {
               console.log('Survey response sent to Firebase successfully!');
-              // Optionally, reset the form or perform other actions, e.g. redirect to success.html
-              window.location.href = 'success.html';
+              // Optionally, reset the form or perform other actions, e.g. redirect to survey_knowledge.html
+              window.location.href = 'survey_knowledge.html';
             })
             .catch(error => {
               console.error('Error sending survey response to Firebase:', error);
@@ -201,9 +201,8 @@
                     </tr>
                 </table>
       
-            
-              <br>
-            <button type="button" onclick="validateAndSubmit()" >Weiter</button>
+              </div>
+            <button type="button" onclick="validateAndSubmit()">Weiter</button>
             </div></form>
           
               
@@ -232,7 +231,7 @@
         
             // Function to handle form submission
             function handleFormSubmission() {
-                window.location.href = 'survey_preferences2.html';
+                window.location.href = 'survey_knowledge.html';
             }
             </script>
 

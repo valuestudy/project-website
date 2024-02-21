@@ -36,8 +36,8 @@
           surveyRef.push(data)
             .then(() => {
               console.log('Survey response sent to Firebase successfully!');
-              // Optionally, reset the form or perform other actions, e.g. redirect to success.html
-              window.location.href = 'success.html';
+              // Optionally, reset the form or perform other actions, e.g. redirect to survey_law2.html
+              window.location.href = 'survey_law2.html';
             })
             .catch(error => {
               console.error('Error sending survey response to Firebase:', error);
@@ -125,85 +125,65 @@
       <div class="content-table flex-column">
         <div class="flex-row">
             <div class="flex-item flex-column-survey">
-                <h2 id="Survey">Datenschutz-Präferenzen</h2>
+                <h2 id="Survey">Wissen über Datenschutzrecht</h2>
                 <hr>
                 <p class="text">
-                Bitte beantworten Sie folgende Fragen zu Ihren Ansichten hinsichtlich Ihrer online Privatsphäre. 
+                Bitte beantworten Sie folgende Fragen zum Kentnissstand zum Thema online Privatsphäre.
                 <br>
                 </p>
                 <br>
             <form id="likertForm">
                 <div class="custom-radio-group-survey add-top-margin">
-                <table>
-                    <tr>
-                        <th>Fragen</th>
-                        <th>Stimme voll zu</th>
-                        <th>Stimme zu</th>
-                        <th>Neutral</th>
-                        <th>Stimme nicht zu</th>
-                        <th>Stimme gar nicht zu</th>
-                    </tr>
-                    <tr>
-                        <td>Es ist wichtig für mich, meine Privatsphäre im Internet zu schützen.</td>
-                        <td><input type="radio" name="question-1" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-1" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-1" value="Neutral"></td>
-                        <td><input type="radio" name="question-1" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-1" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Wenn ich Websites besuche, versuche ich normalerweise, so wenig Daten wie möglich preiszugeben.</td>
-                        <td><input type="radio" name="question-2" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-2" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-2" value="Neutral"></td>
-                        <td><input type="radio" name="question-2" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-2" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Ich schätze personalisierte Werbung, die auf meinen vorherigen Online-Aktivitäten zugeschnitten sind.</td>
-                        <td><input type="radio" name="question-3" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-3" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-3" value="Neutral"></td>
-                        <td><input type="radio" name="question-3" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-3" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Im Allgemeinen bin ich besorgt um meine Privatsphäre bei der Nutzung des Internets.</td>
-                        <td><input type="radio" name="question-4" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-4" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-4" value="Neutral"></td>
-                        <td><input type="radio" name="question-4" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-4" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Ich bin besorgt darüber, dass Online-Organisationen nicht sind, wer sie vorgeben zu sein.</td>
-                        <td><input type="radio" name="question-5" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-5" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-5" value="Neutral"></td>
-                        <td><input type="radio" name="question-5" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-5" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Ich bin besorgt, dass bei der Anmeldung oder bei Online-Einkäufen viele persönliche Informationen angeben werden müssen.</td>
-                        <td><input type="radio" name="question-6" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-6" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-6" value="Neutral"></td>
-                        <td><input type="radio" name="question-6" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-6" value="Stimme voll zu"></td>
-                    </tr>
-                    <tr>
-                        <td>Ich bin besorgt über Identitätsdiebstahl im Internet.</td>
-                        <td><input type="radio" name="question-7" value="Stimme gar nicht zu"></td>
-                        <td><input type="radio" name="question-7" value="Stimme nicht zu"></td>
-                        <td><input type="radio" name="question-7" value="Neutral"></td>
-                        <td><input type="radio" name="question-7" value="Stimme zu"></td>
-                        <td><input type="radio" name="question-7" value="Stimme voll zu"></td>
-                    </tr>
-                </table>
-      
-            
-              <br>
-            <button type="button" onclick="validateAndSubmit()" >Weiter</button>
+                
+                    <div class="custom-survey add-top-margin add-bottom-margin">
+                        <span class="text"><b>1. Die Weiterleitung anonymisierter Nutzerdaten zu Marktforschungszwecken in der EU gesetzlich erlaubt.</b> </span>
+                        <div class="custom-radio-group-survey add-top-margin">
+                            <div><input type="radio" name="EUlaw" value="A" id="eulaw-item-1"> <label class="break-long-url" for="eulaw-item-1">Wahr</label></div>
+                            <div><input type="radio" name="EUlaw" value="B" id="eulaw-item-2"> <label class="break-long-url" for="eulaw-item-2">Falsch</label></div>
+                            <div><input type="radio" name="EUlaw" value="C" id="eulaw-item-3"> <label class="break-long-url" for="eulaw-item-3">Weiß nicht</label></div>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-survey add-top-margin add-bottom-margin">
+                        <span class="text"><b>2. Die EU-Richtlinien zum Datenschutz (z.B. die ePrivacy Richtlinie)...</b> <br></span>
+                        <div class="custom-radio-group-survey add-top-margin">
+                            <div><input type="radio" name="Directive" value="A" id="directive-item-1"> <label class="break-long-url" for="directive-item-1">...geben den EU-Ländern lediglich eine unverbindliche Orientierung hinsichtlich ihrer Datenschutzgesetze.</label></div>
+                            <div><input type="radio" name="Directive" value="B" id="directive-item-2"> <label class="break-long-url" for="directive-item-2">...gelten als länderübergreifendes EU-Datenschutzgesetz</label></div>
+                            <div><input type="radio" name="Directive" value="C" id="directive-item-3"> <label class="break-long-url" for="directive-item-3">...müssen von allen EU-Ländern in das nationale Datenschutzgesetz implementiert werden.</label></div>
+                            <div><input type="radio" name="Directive" value="D" id="directive-item-4"> <label class="break-long-url" for="directive-item-4">...existieren bisher noch nicht.</label></div>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-survey add-top-margin add-bottom-margin">
+                        <span class="text"><b>3. Für alle sozialen Netzwerkseiten gelten in Deutschland die gleichen Standard-AGBs. Abweichungen müssen von den Betreibern kenntlich gemacht werden.</b> <br></span>
+                        <div class="custom-radio-group-survey add-top-margin">
+                            <div><input type="radio" name="AGB" value="A" id="agb-item-1"> <label class="break-long-url" for="agb-item-1">Wahr</label></div>
+                            <div><input type="radio" name="AGB" value="B" id="agb-item-2"> <label class="break-long-url" for="agb-item-2">Falsch</label></div>
+                            <div><input type="radio" name="AGB" value="C" id="agb-item-3"> <label class="break-long-url" for="agb-item-3">Weiß nicht</label></div>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-survey add-top-margin add-bottom-margin">
+                        <span class="text"><b>4. Laut dem deutschen Gesetz haben Nutzer von Online-Anwendungen, die personenbezogene Daten erheben und verarbeiten, einen Anspruch darauf, die über sie gespeicherten Daten einzusehen.</b><br></span>
+                        <div class="custom-radio-group-survey add-top-margin">
+                            <div><input type="radio" name="Ges_04" value="A" id="ges04-item-1"> <label class="break-long-url" for="ges04-item-1">Wahr</label></div>
+                            <div><input type="radio" name="Ges_04" value="B" id="ges04-item-2"> <label class="break-long-url" for="ges04-item-2">Falsch</label></div>
+                            <div><input type="radio" name="Ges_04" value="C" id="ges04-item-3"> <label class="break-long-url" for="ges04-item-3">Weiß nicht</label></div>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-survey add-top-margin add-bottom-margin">
+                        <span class="text"><b>5. Informationelle Selbstbestimmung ist...</b> <br></span>
+                        <div class="custom-radio-group-survey add-top-margin">
+                            <div><input type="radio" name="infoSelfDet" value="A" id="infoSelfDet-item-1"> <label class="break-long-url" for="infoSelfDet-item-1">...ein Grundrecht deutscher Bürger.</label></div>
+                            <div><input type="radio" name="infoSelfDet" value="B" id="infoSelfDet-item-2"> <label class="break-long-url" for="infoSelfDet-item-2">...ein philosophischer Begriff.</label></div>
+                            <div><input type="radio" name="infoSelfDet" value="C" id="infoSelfDet-item-3"> <label class="break-long-url" for="infoSelfDet-item-3">...die zentrale Forderung datenverarbeitender Stellen.</label></div>
+                            <div><input type="radio" name="infoSelfDet" value="D" id="infoSelfDet-item-4"> <label class="break-long-url" for="infoSelfDet-item-4">...die zentrale Aufgabe des Bundesdatenschutzbeauftragten.</label></div>
+                        </div>
+                    </div>
+                    
+              </div>
+            <button type="button" onclick="validateAndSubmit()">Weiter</button>
             </div></form>
           
               
@@ -232,7 +212,7 @@
         
             // Function to handle form submission
             function handleFormSubmission() {
-                window.location.href = 'survey_preferences2.html';
+                window.location.href = 'survey_law2.html';
             }
             </script>
 

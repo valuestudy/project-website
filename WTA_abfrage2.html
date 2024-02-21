@@ -219,7 +219,7 @@
           console.log(user);
 
           // Redirect to the next page after successful sign-in
-        window.location.href = '/survey_preferences.html';
+        window.location.href = '/demographics.html';
         })
         .catch(function(error) {
           // Handle Errors here.
@@ -236,32 +236,32 @@
 <div class="content-container">
   
     <div class="banner" style="color: black;  background-color: rgb(209, 209, 209); max-width: 900px; margin: 0 auto;">
-    <div class="banner-table flex-column">
-      <div class="flex-row">
-        <div class="flex-item flex-column">
+    <div class="banner-table flex-column" style="text-align: center;">
+      
+      
           
         <h2>Angabe Ihrer Zahlungsbereitschaft </h2>
 
-        <br>
-        <br>
-        
-        <form id="wtaForm">
-          <label for="wta">Ich wäre für einen Betrag von:</label>
+       
+        <form id="wtaForm" style="text-align: center;">
+          <br>
+          <label for="wta" style="text-align: center;">Ich wäre für einen Betrag von:</label>
           <div class="slider-container">
             <input type="range" id="wta" name="wta" min="0" max="5" step="0.01" value="0" />
             <div class="slider-labels">
               <div class="label">0 EUR</div>
               <div class="label">2.5 EUR</div>
               <div class="label">5 EUR</div>
+              <br>
             </div>
             <br>
           </div>
         </form>
         
         <br>
-        <div class="chosen-price" id="chosenPrice"> 0.00 EUR bereit, mich mit meinem Google Konto ein zu loggen, bevor ich mit der Umfrage fortfahre. </div>
+        <div class="chosen-price" id="chosenPrice" style="margin-top: 20px;">0.00 EUR bereit, mich mit meinem Google Konto ein zu loggen, bevor ich mit der Umfrage fortfahre. </div>
 
-      
+      </p>
         <script>
 
             document.addEventListener("DOMContentLoaded", function () {
@@ -295,9 +295,6 @@
 
             <button id="weiterButton" type="button" onclick="weiterButtonClick()" style="display: none;">Weiter</button>
 
-
-              <!-- Add this element to display additional text if needed -->
-              <div id="additionalText" style="margin-top: 10px;"></div>
             <br>
             
 
@@ -328,11 +325,35 @@
         </div>
         </div>
         </div>
-    </div>
-    </div>
 </div> 
 
+<div class="banner" style="color: black;  background-color: rgb(209, 209, 209); max-width: 900px; margin: 0 auto;">
+  <div class="banner-table flex-column">
+ 
+<p  style="text-align: center;">
+    <b>Oder:</b>
+    <br>
+    Ich bin nicht bereit, mich für eine Zusatzvergütung mit meinem Google Konto einzuloggen, weil
+    <form id="loginOptionsForm">
+      <label>
+        <input type="radio" name="loginOption" value="option1"> ich das grundsätzlich nicht möchte.
+      </label>
+      <label>
+        <input type="radio" name="loginOption" value="option2"> ich dafür nur bereit wäre für einen Betrag, der über 5 EUR liegt.
+      </label>
+      <label>
+        <input type="radio" name="loginOption" value="option3"> ich kein Google Konto habe.
+      </label>
+      <button type="submit" id="submitButton" style="display: block; margin: 0 auto; margin-top: 20px;" disabled>Weiter ohne Möglichkeit einer Zusatzvergütung</button>
+    </form>
+    
+  
+  </p>
+  </div>
+  </div>
+
 <script>
+  // WTA FORM BEGIN
   let assignedPrice;
   let experimentConducted = false;
 
@@ -386,13 +407,30 @@
 
   function continueToSurvey() {
       // Redirect to the survey page (replace "survey.html" with the actual page URL)
-      window.location.href = "survey_preferences.html";
+      window.location.href = "demographics.html";
   }
 
   function weiterButtonClick() {
       // Redirect to the survey page for prices above WTA
-      window.location.href = "survey_preferences.html";
+      window.location.href = "demographics.html";
   }
+// WTA FORM END
+
+
+// BEGIN ADDITIONAL CHOICE LOG IN 
+  const form = document.getElementById("loginOptionsForm");
+  const submitButton = document.getElementById("submitButton");
+
+  form.addEventListener("change", function() {
+    submitButton.disabled = false;
+  });
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+    window.location.href = "demographics.html"; // Redirect to the specified URL
+  });
+
+// END ADDITIONAL CHOICE LOG IN 
 </script>
 
 <script>
@@ -402,7 +440,7 @@
     
     
     // Redirect to another page
-    window.location.href = '/survey_preferences.html/';  // Replace with your desired URL
+    window.location.href = '/demographics.html/';  // Replace with your desired URL
   }
 </script>
 
